@@ -1,0 +1,12 @@
+home:
+    path:     /home
+    defaults:  { _controller: basclaBundle:Default:index }
+products:
+    path:     /products
+    defaults:  { _controller: basclaBundle:Default:products }
+detail:
+    path:     /detail
+    defaults:  { _controller: basclaBundle:Default:detail }
+
+
+
