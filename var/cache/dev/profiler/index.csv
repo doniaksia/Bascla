@@ -1907,3 +1907,6 @@ cfc1fe,::1,GET,http://localhost/bascla/web/app_dev.php/bascla/images/logo.png,15
 56b5f9,::1,GET,http://localhost/bascla/web/app_dev.php/bascla/homeAdmin,1584645629,,200
 719453,::1,GET,http://localhost/bascla/web/app_dev.php/bascla/homeAdmin,1584645705,,200
 8f479b,::1,GET,http://localhost/bascla/web/app_dev.php/bascla/homeAdmin,1584646016,,200
+cbff11,::1,GET,http://localhost/bascla/web/app_dev.php/bascla/home,1584654276,,200
+1af697,::1,GET,http://localhost/bascla/web/app_dev.php/bascla/images/logo2.png,1584654281,ed996f,200
+ed996f,::1,GET,http://localhost/bascla/web/app_dev.php/bascla/images/logo2.png,1584654281,,404
