@@ -14,6 +14,10 @@ class DefaultController extends Controller
     {
         return $this->render('@bascla\Default\index.html.twig');
     }
+    public function indexAdminAction()
+    {
+        return $this->render('@bascla\Default\indexAdmin.html.twig');
+    }
     public function productsAction()
     {
         return $this->render('@bascla\catalogue.html.twig');

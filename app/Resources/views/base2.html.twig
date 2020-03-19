@@ -13,10 +13,12 @@
     <title>Focus - Bootstrap Admin Dashboard </title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('Back/images/favicon.png') }}">
-    <link rel="stylesheet" href="{{ asset('Back/vendor/owl-carousel/css/owl.carousel.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('Back/vendor/owl-carousel/css/owl.theme.default.min.css') }}">
-    <link href="{{ asset('Back/vendor/jqvmap/css/jqvmap.min.css') }}" rel="stylesheet">
+
+    <link href="{{ asset('Back/vendor/pg-calendar/css/pignose.calendar.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('Back/vendor/chartist/css/chartist.min.css') }}" rel="stylesheet">
     <link href="{{ asset('Back/css/style.css') }}" rel="stylesheet">
+
+
     <div id="preloader">
         <div class="sk-three-bounce">
             <div class="sk-child sk-bounce1"></div>
@@ -156,115 +158,139 @@
         <div class="quixnav-scroll">
             <ul class="metismenu" id="menu">
                 <li class="nav-label first">Main Menu</li>
+                <!-- <li><a href="index.html"><i class="icon icon-single-04"></i><span class="nav-text">Dashboard</span></a>
+                </li> -->
                 <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
                                 class="icon icon-single-04"></i><span class="nav-text">Dashboard</span></a>
                     <ul aria-expanded="false">
                         <li><a href="index.html">Dashboard 1</a></li>
                     </ul>
                 </li>
-                <li class="nav-label">Gestion Admin</li>
+
+                <li class="nav-label">Gestion Employés</li>
                 <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                                class="icon icon-app-store"></i><span class="nav-text">Employés </span></a>
+                                class="icon icon-app-store"></i><span class="nav-text">Employés</span></a>
                     <ul aria-expanded="false">
-                        <li><a href="app-profile.html">Profile</a></li>
-                        <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Email</a>
-                            <ul aria-expanded="false">
-                                <li><a href="email-compose.html">Compose</a></li>
-                                <li><a href="email-inbox.html">Inbox</a></li>
-                                <li><a href="email-read.html">Read</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="app-calender.html">Calendar</a></li>
+                        <li><a href="app-profile.html">ajouter</a></li>
+                        <li><a href="app-profile.html">modifier</a></li>
+                        <li><a href="app-profile.html">supprimer</a></li>
+                        <li><a href="app-calender.html">afficher</a></li>
                     </ul>
                 </li>
+
+                <li class="nav-label">Gestion Evenement</li>
                 <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                                class="icon icon-app-store"></i><span class="nav-text">Products </span></a>
+                                class="icon icon-world-2"></i><span class="nav-text">Events</span></a>
                     <ul aria-expanded="false">
-                        <li><a href="app-profile.html">Profile</a></li>
-                        <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Email</a>
-                            <ul aria-expanded="false">
-                                <li><a href="email-compose.html">Compose</a></li>
-                                <li><a href="email-inbox.html">Inbox</a></li>
-                                <li><a href="email-read.html">Read</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="app-calender.html">Calendar</a></li>
+                        <li><a href="app-profile.html">ajouter</a></li>
+                        <li><a href="app-profile.html">modifier</a></li>
+                        <li><a href="app-profile.html">supprimer</a></li>
+                        <li><a href="app-calender.html">confirmer demandes</a></li>
                     </ul>
                 </li>
-                <!--GESTION EVENTS -->
-                <li class="nav-label">Gestion Evenements</li>
+
                 <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                                class="icon icon-app-store"></i><span class="nav-text">Events </span></a>
+                                class="icon icon-plug"></i><span class="nav-text">Weekly Challenge</span></a>
                     <ul aria-expanded="false">
-                        <li><a href="app-profile.html">Profile</a></li>
-                        <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Email</a>
-                            <ul aria-expanded="false">
-                                <li><a href="email-compose.html">Compose</a></li>
-                                <li><a href="email-inbox.html">Inbox</a></li>
-                                <li><a href="email-read.html">Read</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="app-calender.html">Calendar</a></li>
-                    </ul>
-                </li>
-                <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                                class="icon icon-app-store"></i><span class="nav-text">Products </span></a>
-                    <ul aria-expanded="false">
-                        <li><a href="app-profile.html">Profile</a></li>
-                        <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Email</a>
-                            <ul aria-expanded="false">
-                                <li><a href="email-compose.html">Compose</a></li>
-                                <li><a href="email-inbox.html">Inbox</a></li>
-                                <li><a href="email-read.html">Read</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="app-calender.html">Calendar</a></li>
+                        <li><a href="app-profile.html">ajouter</a></li>
+                        <li><a href="app-profile.html">modifier</a></li>
+                        <li><a href="app-profile.html">supprimer</a></li>
+                        <li><a href="app-calender.html">confirmer demandes</a></li>
                     </ul>
                 </li>
 
 
 
+              <!--G PRODUITS TOUS LES PRODUITS -->
+                <li class="nav-label">Gestion Produits</li>
+                <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-form"></i><span class="nav-text">products</span></a>
+                    <ul aria-expanded="false">
+                        <li><a href="app-profile.html">ajouter</a></li>
+                        <li><a href="app-profile.html">modifier</a></li>
+                        <li><a href="app-profile.html">supprimer</a></li>
+                    </ul>
+                </li>
+
+                <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-form"></i><span class="nav-text">Charité</span></a>
+                    <ul aria-expanded="false">
+                        <li><a href="app-profile.html">ajouter</a></li>
+                        <li><a href="app-profile.html">modifier</a></li>
+                        <li><a href="app-profile.html">supprimer</a></li>
+                        <li><a href="app-calender.html">confirmer demandes</a></li>
+
+                    </ul>
+                </li>
+
+                <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-form"></i><span class="nav-text">Recyclage</span></a>
+                    <ul aria-expanded="false">
+                        <li><a href="app-profile.html">ajouter</a></li>
+                        <li><a href="app-profile.html">modifier</a></li>
+                        <li><a href="app-profile.html">supprimer</a></li>
+                        <li><a href="app-calender.html">confirmer demandes</a></li>
+
+                    </ul>
+                </li>
+
+
+                <li class="nav-label">Gestion Formation</li>
+
+                <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-layout-25"></i><span class="nav-text">Formations</span></a>
+                    <ul aria-expanded="false">
+                        <li><a href="app-profile.html">ajouter</a></li>
+                        <li><a href="app-profile.html">modifier</a></li>
+                        <li><a href="app-profile.html">supprimer</a></li>
+                        <li><a href="app-calender.html">confirmer participations</a></li>
+
+                    </ul>
+                </li>
+
+                <li class="nav-label">Gestion AV</li>
+
+                <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-single-copy-06"></i><span class="nav-text">Reparation</span></a>
+                    <ul aria-expanded="false">
+                        <li><a href="app-profile.html">ajouter</a></li>
+                        <li><a href="app-profile.html">modifier</a></li>
+                        <li><a href="app-profile.html">supprimer</a></li>
+                        <li><a href="app-calender.html">confirmer demandes</a></li>
+                    </ul>
+                </li>
+                <li class="nav-label">Gestion Marketing</li>
+                <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-world-2"></i><span class="nav-text">Forum</span></a>
+                    <ul aria-expanded="false">
+                        <li><a href="app-profile.html">ajouter</a></li>
+                        <li><a href="app-profile.html">modifier</a></li>
+                        <li><a href="app-profile.html">supprimer</a></li>
+                    </ul>
+                </li>
+
+                <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-plug"></i><span class="nav-text">Posts</span></a>
+                    <ul aria-expanded="false">
+                        <li><a href="app-profile.html">ajouter</a></li>
+                        <li><a href="app-profile.html">modifier</a></li>
+                        <li><a href="app-profile.html">supprimer</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
-    <script src="{{ asset('Back/vendor/global/global.min.js') }}"></script>
-    <script src="{{ asset('Back/js/quixnav-init.js') }}"></script>
-    <script src="{{ asset('Back/js/custom.min.js') }}"></script>
 
 
-    <!-- Vectormap -->
-    <script src="{{ asset('Back/vendor/raphael/raphael.min.js') }}"></script>
-    <script src="{{ asset('Back/vendor/morris/morris.min.js') }}"></script>
 
-
-    <script src="{{ asset('Back/vendor/circle-progress/circle-progress.min.js') }}"></script>
-    <script src="{{ asset('Back/vendor/chart.js/Chart.bundle.min.js') }}"></script>
-
-    <script src="{{ asset('Back/vendor/gaugeJS/dist/gauge.min.js') }}"></script>
-
-    <!--  flot-chart js -->
-    <script src="{{ asset('Back/vendor/flot/jquery.flot.js') }}"></script>
-    <script src="{{ asset('Back/vendor/flot/jquery.flot.resize.js') }}"></script>
-
-    <!-- Owl Carousel -->
-    <script src="vendor/owl-carousel/js/owl.carousel.min.js"></script>
-
-    <!-- Counter Up -->
-    <script src="vendor/jqvmap/js/jquery.vmap.min.js"></script>
-    <script src="vendor/jqvmap/js/jquery.vmap.usa.js"></script>
-    <script src="vendor/jquery.counterup/jquery.counterup.min.js"></script>
-
-
-    <script src="{{ asset('Back/js/dashboard/dashboard-1.js') }}"></script>
 {% endblock %}
 {% block content %}
-    bjnk,
 {% endblock %}
-{% block footer %}
 
-{% endblock %}
-{% block javascripts %}
-
-
+{% block javascript %}
+<script src="{{ asset('Back/vendor/global/global.min.js') }}"></script>
+    <script src="{{ asset('Back/js/quixnav-init.js') }}"></script>
+    <script src="{{ asset('Back/js/custom.min.js') }}"></script>
 {% endblock %}
 </body>
 </html>

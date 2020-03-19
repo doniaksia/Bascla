@@ -24,8 +24,7 @@ class __TwigTemplate_5e04788123aecbc44f4402556b494786a70f9c1069194272cb26b42b4aa
             'title' => [$this, 'block_title'],
             'header' => [$this, 'block_header'],
             'content' => [$this, 'block_content'],
-            'footer' => [$this, 'block_footer'],
-            'javascripts' => [$this, 'block_javascripts'],
+            'javascript' => [$this, 'block_javascript'],
         ];
     }
 
@@ -52,13 +51,14 @@ class __TwigTemplate_5e04788123aecbc44f4402556b494786a70f9c1069194272cb26b42b4aa
 ";
         // line 9
         $this->displayBlock('header', $context, $blocks);
-        // line 259
+        // line 287
         $this->displayBlock('content', $context, $blocks);
-        // line 262
-        $this->displayBlock('footer', $context, $blocks);
-        // line 265
-        $this->displayBlock('javascripts', $context, $blocks);
-        // line 269
+        // line 289
+        echo "
+";
+        // line 290
+        $this->displayBlock('javascript', $context, $blocks);
+        // line 295
         echo "</body>
 </html>
 ";
@@ -107,22 +107,21 @@ class __TwigTemplate_5e04788123aecbc44f4402556b494786a70f9c1069194272cb26b42b4aa
         // line 15
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("Back/images/favicon.png"), "html", null, true);
         echo "\">
-    <link rel=\"stylesheet\" href=\"";
-        // line 16
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("Back/vendor/owl-carousel/css/owl.carousel.min.css"), "html", null, true);
-        echo "\">
-    <link rel=\"stylesheet\" href=\"";
+
+    <link href=\"";
         // line 17
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("Back/vendor/owl-carousel/css/owl.theme.default.min.css"), "html", null, true);
-        echo "\">
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("Back/vendor/pg-calendar/css/pignose.calendar.min.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\">
     <link href=\"";
         // line 18
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("Back/vendor/jqvmap/css/jqvmap.min.css"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("Back/vendor/chartist/css/chartist.min.css"), "html", null, true);
         echo "\" rel=\"stylesheet\">
     <link href=\"";
         // line 19
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("Back/css/style.css"), "html", null, true);
         echo "\" rel=\"stylesheet\">
+
+
     <div id=\"preloader\">
         <div class=\"sk-three-bounce\">
             <div class=\"sk-child sk-bounce1\"></div>
@@ -138,15 +137,15 @@ class __TwigTemplate_5e04788123aecbc44f4402556b494786a70f9c1069194272cb26b42b4aa
     <div class=\"nav-header\">
         <a href=\"index.html\" class=\"brand-logo\">
             <img class=\"logo-abbr\" src=\"";
-        // line 34
+        // line 36
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("Back/images/logo.png"), "html", null, true);
         echo "\" alt=\"\">
             <img class=\"logo-compact\" src=\"";
-        // line 35
+        // line 37
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("Back/images/logo-text.png"), "html", null, true);
         echo "\" alt=\"\">
             <img class=\"brand-title\" src=\"";
-        // line 36
+        // line 38
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("Back/images/logo-text.png"), "html", null, true);
         echo "\" alt=\"\">
         </a>
@@ -267,145 +266,138 @@ class __TwigTemplate_5e04788123aecbc44f4402556b494786a70f9c1069194272cb26b42b4aa
         </div>
     </div>
     <!--SIDE BAR MENU ADD YOUR PATH WITH PATH";
-        // line 154
+        // line 156
         echo "name of the route in bascla bundle /routing.yml";
         echo " --->
     <div class=\"quixnav\">
         <div class=\"quixnav-scroll\">
             <ul class=\"metismenu\" id=\"menu\">
                 <li class=\"nav-label first\">Main Menu</li>
+                <!-- <li><a href=\"index.html\"><i class=\"icon icon-single-04\"></i><span class=\"nav-text\">Dashboard</span></a>
+                </li> -->
                 <li><a class=\"has-arrow\" href=\"javascript:void()\" aria-expanded=\"false\"><i
                                 class=\"icon icon-single-04\"></i><span class=\"nav-text\">Dashboard</span></a>
                     <ul aria-expanded=\"false\">
                         <li><a href=\"index.html\">Dashboard 1</a></li>
                     </ul>
                 </li>
-                <li class=\"nav-label\">Gestion Admin</li>
+
+                <li class=\"nav-label\">Gestion Employés</li>
                 <li><a class=\"has-arrow\" href=\"javascript:void()\" aria-expanded=\"false\"><i
-                                class=\"icon icon-app-store\"></i><span class=\"nav-text\">Employés </span></a>
+                                class=\"icon icon-app-store\"></i><span class=\"nav-text\">Employés</span></a>
                     <ul aria-expanded=\"false\">
-                        <li><a href=\"app-profile.html\">Profile</a></li>
-                        <li><a class=\"has-arrow\" href=\"javascript:void()\" aria-expanded=\"false\">Email</a>
-                            <ul aria-expanded=\"false\">
-                                <li><a href=\"email-compose.html\">Compose</a></li>
-                                <li><a href=\"email-inbox.html\">Inbox</a></li>
-                                <li><a href=\"email-read.html\">Read</a></li>
-                            </ul>
-                        </li>
-                        <li><a href=\"app-calender.html\">Calendar</a></li>
+                        <li><a href=\"app-profile.html\">ajouter</a></li>
+                        <li><a href=\"app-profile.html\">modifier</a></li>
+                        <li><a href=\"app-profile.html\">supprimer</a></li>
+                        <li><a href=\"app-calender.html\">afficher</a></li>
                     </ul>
                 </li>
+
+                <li class=\"nav-label\">Gestion Evenement</li>
                 <li><a class=\"has-arrow\" href=\"javascript:void()\" aria-expanded=\"false\"><i
-                                class=\"icon icon-app-store\"></i><span class=\"nav-text\">Products </span></a>
+                                class=\"icon icon-world-2\"></i><span class=\"nav-text\">Events</span></a>
                     <ul aria-expanded=\"false\">
-                        <li><a href=\"app-profile.html\">Profile</a></li>
-                        <li><a class=\"has-arrow\" href=\"javascript:void()\" aria-expanded=\"false\">Email</a>
-                            <ul aria-expanded=\"false\">
-                                <li><a href=\"email-compose.html\">Compose</a></li>
-                                <li><a href=\"email-inbox.html\">Inbox</a></li>
-                                <li><a href=\"email-read.html\">Read</a></li>
-                            </ul>
-                        </li>
-                        <li><a href=\"app-calender.html\">Calendar</a></li>
+                        <li><a href=\"app-profile.html\">ajouter</a></li>
+                        <li><a href=\"app-profile.html\">modifier</a></li>
+                        <li><a href=\"app-profile.html\">supprimer</a></li>
+                        <li><a href=\"app-calender.html\">confirmer demandes</a></li>
                     </ul>
                 </li>
-                <!--GESTION EVENTS -->
-                <li class=\"nav-label\">Gestion Evenements</li>
+
                 <li><a class=\"has-arrow\" href=\"javascript:void()\" aria-expanded=\"false\"><i
-                                class=\"icon icon-app-store\"></i><span class=\"nav-text\">Events </span></a>
+                                class=\"icon icon-plug\"></i><span class=\"nav-text\">Weekly Challenge</span></a>
                     <ul aria-expanded=\"false\">
-                        <li><a href=\"app-profile.html\">Profile</a></li>
-                        <li><a class=\"has-arrow\" href=\"javascript:void()\" aria-expanded=\"false\">Email</a>
-                            <ul aria-expanded=\"false\">
-                                <li><a href=\"email-compose.html\">Compose</a></li>
-                                <li><a href=\"email-inbox.html\">Inbox</a></li>
-                                <li><a href=\"email-read.html\">Read</a></li>
-                            </ul>
-                        </li>
-                        <li><a href=\"app-calender.html\">Calendar</a></li>
-                    </ul>
-                </li>
-                <li><a class=\"has-arrow\" href=\"javascript:void()\" aria-expanded=\"false\"><i
-                                class=\"icon icon-app-store\"></i><span class=\"nav-text\">Products </span></a>
-                    <ul aria-expanded=\"false\">
-                        <li><a href=\"app-profile.html\">Profile</a></li>
-                        <li><a class=\"has-arrow\" href=\"javascript:void()\" aria-expanded=\"false\">Email</a>
-                            <ul aria-expanded=\"false\">
-                                <li><a href=\"email-compose.html\">Compose</a></li>
-                                <li><a href=\"email-inbox.html\">Inbox</a></li>
-                                <li><a href=\"email-read.html\">Read</a></li>
-                            </ul>
-                        </li>
-                        <li><a href=\"app-calender.html\">Calendar</a></li>
+                        <li><a href=\"app-profile.html\">ajouter</a></li>
+                        <li><a href=\"app-profile.html\">modifier</a></li>
+                        <li><a href=\"app-profile.html\">supprimer</a></li>
+                        <li><a href=\"app-calender.html\">confirmer demandes</a></li>
                     </ul>
                 </li>
 
 
 
+              <!--G PRODUITS TOUS LES PRODUITS -->
+                <li class=\"nav-label\">Gestion Produits</li>
+                <li><a class=\"has-arrow\" href=\"javascript:void()\" aria-expanded=\"false\"><i
+                                class=\"icon icon-form\"></i><span class=\"nav-text\">products</span></a>
+                    <ul aria-expanded=\"false\">
+                        <li><a href=\"app-profile.html\">ajouter</a></li>
+                        <li><a href=\"app-profile.html\">modifier</a></li>
+                        <li><a href=\"app-profile.html\">supprimer</a></li>
+                    </ul>
+                </li>
+
+                <li><a class=\"has-arrow\" href=\"javascript:void()\" aria-expanded=\"false\"><i
+                                class=\"icon icon-form\"></i><span class=\"nav-text\">Charité</span></a>
+                    <ul aria-expanded=\"false\">
+                        <li><a href=\"app-profile.html\">ajouter</a></li>
+                        <li><a href=\"app-profile.html\">modifier</a></li>
+                        <li><a href=\"app-profile.html\">supprimer</a></li>
+                        <li><a href=\"app-calender.html\">confirmer demandes</a></li>
+
+                    </ul>
+                </li>
+
+                <li><a class=\"has-arrow\" href=\"javascript:void()\" aria-expanded=\"false\"><i
+                                class=\"icon icon-form\"></i><span class=\"nav-text\">Recyclage</span></a>
+                    <ul aria-expanded=\"false\">
+                        <li><a href=\"app-profile.html\">ajouter</a></li>
+                        <li><a href=\"app-profile.html\">modifier</a></li>
+                        <li><a href=\"app-profile.html\">supprimer</a></li>
+                        <li><a href=\"app-calender.html\">confirmer demandes</a></li>
+
+                    </ul>
+                </li>
+
+
+                <li class=\"nav-label\">Gestion Formation</li>
+
+                <li><a class=\"has-arrow\" href=\"javascript:void()\" aria-expanded=\"false\"><i
+                                class=\"icon icon-layout-25\"></i><span class=\"nav-text\">Formations</span></a>
+                    <ul aria-expanded=\"false\">
+                        <li><a href=\"app-profile.html\">ajouter</a></li>
+                        <li><a href=\"app-profile.html\">modifier</a></li>
+                        <li><a href=\"app-profile.html\">supprimer</a></li>
+                        <li><a href=\"app-calender.html\">confirmer participations</a></li>
+
+                    </ul>
+                </li>
+
+                <li class=\"nav-label\">Gestion AV</li>
+
+                <li><a class=\"has-arrow\" href=\"javascript:void()\" aria-expanded=\"false\"><i
+                                class=\"icon icon-single-copy-06\"></i><span class=\"nav-text\">Reparation</span></a>
+                    <ul aria-expanded=\"false\">
+                        <li><a href=\"app-profile.html\">ajouter</a></li>
+                        <li><a href=\"app-profile.html\">modifier</a></li>
+                        <li><a href=\"app-profile.html\">supprimer</a></li>
+                        <li><a href=\"app-calender.html\">confirmer demandes</a></li>
+                    </ul>
+                </li>
+                <li class=\"nav-label\">Gestion Marketing</li>
+                <li><a class=\"has-arrow\" href=\"javascript:void()\" aria-expanded=\"false\"><i
+                                class=\"icon icon-world-2\"></i><span class=\"nav-text\">Forum</span></a>
+                    <ul aria-expanded=\"false\">
+                        <li><a href=\"app-profile.html\">ajouter</a></li>
+                        <li><a href=\"app-profile.html\">modifier</a></li>
+                        <li><a href=\"app-profile.html\">supprimer</a></li>
+                    </ul>
+                </li>
+
+                <li><a class=\"has-arrow\" href=\"javascript:void()\" aria-expanded=\"false\"><i
+                                class=\"icon icon-plug\"></i><span class=\"nav-text\">Posts</span></a>
+                    <ul aria-expanded=\"false\">
+                        <li><a href=\"app-profile.html\">ajouter</a></li>
+                        <li><a href=\"app-profile.html\">modifier</a></li>
+                        <li><a href=\"app-profile.html\">supprimer</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
-    <script src=\"";
-        // line 229
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("Back/vendor/global/global.min.js"), "html", null, true);
-        echo "\"></script>
-    <script src=\"";
-        // line 230
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("Back/js/quixnav-init.js"), "html", null, true);
-        echo "\"></script>
-    <script src=\"";
-        // line 231
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("Back/js/custom.min.js"), "html", null, true);
-        echo "\"></script>
 
 
-    <!-- Vectormap -->
-    <script src=\"";
-        // line 235
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("Back/vendor/raphael/raphael.min.js"), "html", null, true);
-        echo "\"></script>
-    <script src=\"";
-        // line 236
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("Back/vendor/morris/morris.min.js"), "html", null, true);
-        echo "\"></script>
 
-
-    <script src=\"";
-        // line 239
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("Back/vendor/circle-progress/circle-progress.min.js"), "html", null, true);
-        echo "\"></script>
-    <script src=\"";
-        // line 240
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("Back/vendor/chart.js/Chart.bundle.min.js"), "html", null, true);
-        echo "\"></script>
-
-    <script src=\"";
-        // line 242
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("Back/vendor/gaugeJS/dist/gauge.min.js"), "html", null, true);
-        echo "\"></script>
-
-    <!--  flot-chart js -->
-    <script src=\"";
-        // line 245
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("Back/vendor/flot/jquery.flot.js"), "html", null, true);
-        echo "\"></script>
-    <script src=\"";
-        // line 246
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("Back/vendor/flot/jquery.flot.resize.js"), "html", null, true);
-        echo "\"></script>
-
-    <!-- Owl Carousel -->
-    <script src=\"vendor/owl-carousel/js/owl.carousel.min.js\"></script>
-
-    <!-- Counter Up -->
-    <script src=\"vendor/jqvmap/js/jquery.vmap.min.js\"></script>
-    <script src=\"vendor/jqvmap/js/jquery.vmap.usa.js\"></script>
-    <script src=\"vendor/jquery.counterup/jquery.counterup.min.js\"></script>
-
-
-    <script src=\"";
-        // line 257
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("Back/js/dashboard/dashboard-1.js"), "html", null, true);
-        echo "\"></script>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -415,7 +407,7 @@ class __TwigTemplate_5e04788123aecbc44f4402556b494786a70f9c1069194272cb26b42b4aa
 
     }
 
-    // line 259
+    // line 287
     public function block_content($context, array $blocks = [])
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
@@ -424,9 +416,6 @@ class __TwigTemplate_5e04788123aecbc44f4402556b494786a70f9c1069194272cb26b42b4aa
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "content"));
 
-        // line 260
-        echo "    bjnk,
-";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -435,38 +424,27 @@ class __TwigTemplate_5e04788123aecbc44f4402556b494786a70f9c1069194272cb26b42b4aa
 
     }
 
-    // line 262
-    public function block_footer($context, array $blocks = [])
+    // line 290
+    public function block_javascript($context, array $blocks = [])
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "footer"));
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascript"));
 
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "footer"));
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascript"));
 
-        // line 263
-        echo "
-";
-        
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
-
-        
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
-
-    }
-
-    // line 265
-    public function block_javascripts($context, array $blocks = [])
-    {
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
-
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
-
-        // line 266
-        echo "
-
+        // line 291
+        echo "<script src=\"";
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("Back/vendor/global/global.min.js"), "html", null, true);
+        echo "\"></script>
+    <script src=\"";
+        // line 292
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("Back/js/quixnav-init.js"), "html", null, true);
+        echo "\"></script>
+    <script src=\"";
+        // line 293
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("Back/js/custom.min.js"), "html", null, true);
+        echo "\"></script>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -483,7 +461,7 @@ class __TwigTemplate_5e04788123aecbc44f4402556b494786a70f9c1069194272cb26b42b4aa
 
     public function getDebugInfo()
     {
-        return array (  468 => 266,  459 => 265,  448 => 263,  439 => 262,  428 => 260,  419 => 259,  407 => 257,  393 => 246,  389 => 245,  383 => 242,  378 => 240,  374 => 239,  368 => 236,  364 => 235,  357 => 231,  353 => 230,  349 => 229,  271 => 154,  150 => 36,  146 => 35,  142 => 34,  124 => 19,  120 => 18,  116 => 17,  112 => 16,  108 => 15,  101 => 10,  92 => 9,  74 => 5,  62 => 269,  60 => 265,  58 => 262,  56 => 259,  54 => 9,  47 => 5,  41 => 1,);
+        return array (  446 => 293,  442 => 292,  437 => 291,  428 => 290,  411 => 287,  270 => 156,  149 => 38,  145 => 37,  141 => 36,  121 => 19,  117 => 18,  113 => 17,  108 => 15,  101 => 10,  92 => 9,  74 => 5,  62 => 295,  60 => 290,  57 => 289,  55 => 287,  53 => 9,  46 => 5,  40 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -511,10 +489,12 @@ class __TwigTemplate_5e04788123aecbc44f4402556b494786a70f9c1069194272cb26b42b4aa
     <title>Focus - Bootstrap Admin Dashboard </title>
     <!-- Favicon icon -->
     <link rel=\"icon\" type=\"image/png\" sizes=\"16x16\" href=\"{{ asset('Back/images/favicon.png') }}\">
-    <link rel=\"stylesheet\" href=\"{{ asset('Back/vendor/owl-carousel/css/owl.carousel.min.css') }}\">
-    <link rel=\"stylesheet\" href=\"{{ asset('Back/vendor/owl-carousel/css/owl.theme.default.min.css') }}\">
-    <link href=\"{{ asset('Back/vendor/jqvmap/css/jqvmap.min.css') }}\" rel=\"stylesheet\">
+
+    <link href=\"{{ asset('Back/vendor/pg-calendar/css/pignose.calendar.min.css') }}\" rel=\"stylesheet\">
+    <link href=\"{{ asset('Back/vendor/chartist/css/chartist.min.css') }}\" rel=\"stylesheet\">
     <link href=\"{{ asset('Back/css/style.css') }}\" rel=\"stylesheet\">
+
+
     <div id=\"preloader\">
         <div class=\"sk-three-bounce\">
             <div class=\"sk-child sk-bounce1\"></div>
@@ -654,115 +634,139 @@ class __TwigTemplate_5e04788123aecbc44f4402556b494786a70f9c1069194272cb26b42b4aa
         <div class=\"quixnav-scroll\">
             <ul class=\"metismenu\" id=\"menu\">
                 <li class=\"nav-label first\">Main Menu</li>
+                <!-- <li><a href=\"index.html\"><i class=\"icon icon-single-04\"></i><span class=\"nav-text\">Dashboard</span></a>
+                </li> -->
                 <li><a class=\"has-arrow\" href=\"javascript:void()\" aria-expanded=\"false\"><i
                                 class=\"icon icon-single-04\"></i><span class=\"nav-text\">Dashboard</span></a>
                     <ul aria-expanded=\"false\">
                         <li><a href=\"index.html\">Dashboard 1</a></li>
                     </ul>
                 </li>
-                <li class=\"nav-label\">Gestion Admin</li>
+
+                <li class=\"nav-label\">Gestion Employés</li>
                 <li><a class=\"has-arrow\" href=\"javascript:void()\" aria-expanded=\"false\"><i
-                                class=\"icon icon-app-store\"></i><span class=\"nav-text\">Employés </span></a>
+                                class=\"icon icon-app-store\"></i><span class=\"nav-text\">Employés</span></a>
                     <ul aria-expanded=\"false\">
-                        <li><a href=\"app-profile.html\">Profile</a></li>
-                        <li><a class=\"has-arrow\" href=\"javascript:void()\" aria-expanded=\"false\">Email</a>
-                            <ul aria-expanded=\"false\">
-                                <li><a href=\"email-compose.html\">Compose</a></li>
-                                <li><a href=\"email-inbox.html\">Inbox</a></li>
-                                <li><a href=\"email-read.html\">Read</a></li>
-                            </ul>
-                        </li>
-                        <li><a href=\"app-calender.html\">Calendar</a></li>
+                        <li><a href=\"app-profile.html\">ajouter</a></li>
+                        <li><a href=\"app-profile.html\">modifier</a></li>
+                        <li><a href=\"app-profile.html\">supprimer</a></li>
+                        <li><a href=\"app-calender.html\">afficher</a></li>
                     </ul>
                 </li>
+
+                <li class=\"nav-label\">Gestion Evenement</li>
                 <li><a class=\"has-arrow\" href=\"javascript:void()\" aria-expanded=\"false\"><i
-                                class=\"icon icon-app-store\"></i><span class=\"nav-text\">Products </span></a>
+                                class=\"icon icon-world-2\"></i><span class=\"nav-text\">Events</span></a>
                     <ul aria-expanded=\"false\">
-                        <li><a href=\"app-profile.html\">Profile</a></li>
-                        <li><a class=\"has-arrow\" href=\"javascript:void()\" aria-expanded=\"false\">Email</a>
-                            <ul aria-expanded=\"false\">
-                                <li><a href=\"email-compose.html\">Compose</a></li>
-                                <li><a href=\"email-inbox.html\">Inbox</a></li>
-                                <li><a href=\"email-read.html\">Read</a></li>
-                            </ul>
-                        </li>
-                        <li><a href=\"app-calender.html\">Calendar</a></li>
+                        <li><a href=\"app-profile.html\">ajouter</a></li>
+                        <li><a href=\"app-profile.html\">modifier</a></li>
+                        <li><a href=\"app-profile.html\">supprimer</a></li>
+                        <li><a href=\"app-calender.html\">confirmer demandes</a></li>
                     </ul>
                 </li>
-                <!--GESTION EVENTS -->
-                <li class=\"nav-label\">Gestion Evenements</li>
+
                 <li><a class=\"has-arrow\" href=\"javascript:void()\" aria-expanded=\"false\"><i
-                                class=\"icon icon-app-store\"></i><span class=\"nav-text\">Events </span></a>
+                                class=\"icon icon-plug\"></i><span class=\"nav-text\">Weekly Challenge</span></a>
                     <ul aria-expanded=\"false\">
-                        <li><a href=\"app-profile.html\">Profile</a></li>
-                        <li><a class=\"has-arrow\" href=\"javascript:void()\" aria-expanded=\"false\">Email</a>
-                            <ul aria-expanded=\"false\">
-                                <li><a href=\"email-compose.html\">Compose</a></li>
-                                <li><a href=\"email-inbox.html\">Inbox</a></li>
-                                <li><a href=\"email-read.html\">Read</a></li>
-                            </ul>
-                        </li>
-                        <li><a href=\"app-calender.html\">Calendar</a></li>
-                    </ul>
-                </li>
-                <li><a class=\"has-arrow\" href=\"javascript:void()\" aria-expanded=\"false\"><i
-                                class=\"icon icon-app-store\"></i><span class=\"nav-text\">Products </span></a>
-                    <ul aria-expanded=\"false\">
-                        <li><a href=\"app-profile.html\">Profile</a></li>
-                        <li><a class=\"has-arrow\" href=\"javascript:void()\" aria-expanded=\"false\">Email</a>
-                            <ul aria-expanded=\"false\">
-                                <li><a href=\"email-compose.html\">Compose</a></li>
-                                <li><a href=\"email-inbox.html\">Inbox</a></li>
-                                <li><a href=\"email-read.html\">Read</a></li>
-                            </ul>
-                        </li>
-                        <li><a href=\"app-calender.html\">Calendar</a></li>
+                        <li><a href=\"app-profile.html\">ajouter</a></li>
+                        <li><a href=\"app-profile.html\">modifier</a></li>
+                        <li><a href=\"app-profile.html\">supprimer</a></li>
+                        <li><a href=\"app-calender.html\">confirmer demandes</a></li>
                     </ul>
                 </li>
 
 
 
+              <!--G PRODUITS TOUS LES PRODUITS -->
+                <li class=\"nav-label\">Gestion Produits</li>
+                <li><a class=\"has-arrow\" href=\"javascript:void()\" aria-expanded=\"false\"><i
+                                class=\"icon icon-form\"></i><span class=\"nav-text\">products</span></a>
+                    <ul aria-expanded=\"false\">
+                        <li><a href=\"app-profile.html\">ajouter</a></li>
+                        <li><a href=\"app-profile.html\">modifier</a></li>
+                        <li><a href=\"app-profile.html\">supprimer</a></li>
+                    </ul>
+                </li>
+
+                <li><a class=\"has-arrow\" href=\"javascript:void()\" aria-expanded=\"false\"><i
+                                class=\"icon icon-form\"></i><span class=\"nav-text\">Charité</span></a>
+                    <ul aria-expanded=\"false\">
+                        <li><a href=\"app-profile.html\">ajouter</a></li>
+                        <li><a href=\"app-profile.html\">modifier</a></li>
+                        <li><a href=\"app-profile.html\">supprimer</a></li>
+                        <li><a href=\"app-calender.html\">confirmer demandes</a></li>
+
+                    </ul>
+                </li>
+
+                <li><a class=\"has-arrow\" href=\"javascript:void()\" aria-expanded=\"false\"><i
+                                class=\"icon icon-form\"></i><span class=\"nav-text\">Recyclage</span></a>
+                    <ul aria-expanded=\"false\">
+                        <li><a href=\"app-profile.html\">ajouter</a></li>
+                        <li><a href=\"app-profile.html\">modifier</a></li>
+                        <li><a href=\"app-profile.html\">supprimer</a></li>
+                        <li><a href=\"app-calender.html\">confirmer demandes</a></li>
+
+                    </ul>
+                </li>
+
+
+                <li class=\"nav-label\">Gestion Formation</li>
+
+                <li><a class=\"has-arrow\" href=\"javascript:void()\" aria-expanded=\"false\"><i
+                                class=\"icon icon-layout-25\"></i><span class=\"nav-text\">Formations</span></a>
+                    <ul aria-expanded=\"false\">
+                        <li><a href=\"app-profile.html\">ajouter</a></li>
+                        <li><a href=\"app-profile.html\">modifier</a></li>
+                        <li><a href=\"app-profile.html\">supprimer</a></li>
+                        <li><a href=\"app-calender.html\">confirmer participations</a></li>
+
+                    </ul>
+                </li>
+
+                <li class=\"nav-label\">Gestion AV</li>
+
+                <li><a class=\"has-arrow\" href=\"javascript:void()\" aria-expanded=\"false\"><i
+                                class=\"icon icon-single-copy-06\"></i><span class=\"nav-text\">Reparation</span></a>
+                    <ul aria-expanded=\"false\">
+                        <li><a href=\"app-profile.html\">ajouter</a></li>
+                        <li><a href=\"app-profile.html\">modifier</a></li>
+                        <li><a href=\"app-profile.html\">supprimer</a></li>
+                        <li><a href=\"app-calender.html\">confirmer demandes</a></li>
+                    </ul>
+                </li>
+                <li class=\"nav-label\">Gestion Marketing</li>
+                <li><a class=\"has-arrow\" href=\"javascript:void()\" aria-expanded=\"false\"><i
+                                class=\"icon icon-world-2\"></i><span class=\"nav-text\">Forum</span></a>
+                    <ul aria-expanded=\"false\">
+                        <li><a href=\"app-profile.html\">ajouter</a></li>
+                        <li><a href=\"app-profile.html\">modifier</a></li>
+                        <li><a href=\"app-profile.html\">supprimer</a></li>
+                    </ul>
+                </li>
+
+                <li><a class=\"has-arrow\" href=\"javascript:void()\" aria-expanded=\"false\"><i
+                                class=\"icon icon-plug\"></i><span class=\"nav-text\">Posts</span></a>
+                    <ul aria-expanded=\"false\">
+                        <li><a href=\"app-profile.html\">ajouter</a></li>
+                        <li><a href=\"app-profile.html\">modifier</a></li>
+                        <li><a href=\"app-profile.html\">supprimer</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
-    <script src=\"{{ asset('Back/vendor/global/global.min.js') }}\"></script>
-    <script src=\"{{ asset('Back/js/quixnav-init.js') }}\"></script>
-    <script src=\"{{ asset('Back/js/custom.min.js') }}\"></script>
 
 
-    <!-- Vectormap -->
-    <script src=\"{{ asset('Back/vendor/raphael/raphael.min.js') }}\"></script>
-    <script src=\"{{ asset('Back/vendor/morris/morris.min.js') }}\"></script>
 
-
-    <script src=\"{{ asset('Back/vendor/circle-progress/circle-progress.min.js') }}\"></script>
-    <script src=\"{{ asset('Back/vendor/chart.js/Chart.bundle.min.js') }}\"></script>
-
-    <script src=\"{{ asset('Back/vendor/gaugeJS/dist/gauge.min.js') }}\"></script>
-
-    <!--  flot-chart js -->
-    <script src=\"{{ asset('Back/vendor/flot/jquery.flot.js') }}\"></script>
-    <script src=\"{{ asset('Back/vendor/flot/jquery.flot.resize.js') }}\"></script>
-
-    <!-- Owl Carousel -->
-    <script src=\"vendor/owl-carousel/js/owl.carousel.min.js\"></script>
-
-    <!-- Counter Up -->
-    <script src=\"vendor/jqvmap/js/jquery.vmap.min.js\"></script>
-    <script src=\"vendor/jqvmap/js/jquery.vmap.usa.js\"></script>
-    <script src=\"vendor/jquery.counterup/jquery.counterup.min.js\"></script>
-
-
-    <script src=\"{{ asset('Back/js/dashboard/dashboard-1.js') }}\"></script>
 {% endblock %}
 {% block content %}
-    bjnk,
 {% endblock %}
-{% block footer %}
 
-{% endblock %}
-{% block javascripts %}
-
-
+{% block javascript %}
+<script src=\"{{ asset('Back/vendor/global/global.min.js') }}\"></script>
+    <script src=\"{{ asset('Back/js/quixnav-init.js') }}\"></script>
+    <script src=\"{{ asset('Back/js/custom.min.js') }}\"></script>
 {% endblock %}
 </body>
 </html>

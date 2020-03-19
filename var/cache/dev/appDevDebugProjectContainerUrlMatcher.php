@@ -108,9 +108,17 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         }
 
         elseif (0 === strpos($pathinfo, '/bascla')) {
-            // home
-            if ('/bascla/home' === $pathinfo) {
-                return array (  '_controller' => 'basclaBundle\\Controller\\DefaultController::indexAction',  '_route' => 'home',);
+            if (0 === strpos($pathinfo, '/bascla/home')) {
+                // home
+                if ('/bascla/home' === $pathinfo) {
+                    return array (  '_controller' => 'basclaBundle\\Controller\\DefaultController::indexAction',  '_route' => 'home',);
+                }
+
+                // homeAdmin
+                if ('/bascla/homeAdmin' === $pathinfo) {
+                    return array (  '_controller' => 'basclaBundle\\Controller\\DefaultController::indexAdminAction',  '_route' => 'homeAdmin',);
+                }
+
             }
 
             // products
