@@ -6,6 +6,10 @@ if (\class_exists(\ContainerCtfzdsx\appDevDebugProjectContainer::class, false)) 
     // no-op
 } elseif (!include __DIR__.'/ContainerCtfzdsx/appDevDebugProjectContainer.php') {
     touch(__DIR__.'/ContainerCtfzdsx.legacy');
+if (\class_exists(\ContainerUcwbxhx\appDevDebugProjectContainer::class, false)) {
+    // no-op
+} elseif (!include __DIR__.'/ContainerUcwbxhx/appDevDebugProjectContainer.php') {
+    touch(__DIR__.'/ContainerUcwbxhx.legacy');
 
     return;
 }
@@ -19,3 +23,11 @@ return new \ContainerCtfzdsx\appDevDebugProjectContainer([
     'container.build_id' => 'efc2e4cb',
     'container.build_time' => 1585060783,
 ], __DIR__.\DIRECTORY_SEPARATOR.'ContainerCtfzdsx');
+    \class_alias(\ContainerUcwbxhx\appDevDebugProjectContainer::class, appDevDebugProjectContainer::class, false);
+}
+
+return new \ContainerUcwbxhx\appDevDebugProjectContainer([
+    'container.build_hash' => 'Ucwbxhx',
+    'container.build_id' => 'fc56aa24',
+    'container.build_time' => 1585022089,
+], __DIR__.\DIRECTORY_SEPARATOR.'ContainerUcwbxhx');

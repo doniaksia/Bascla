@@ -10,6 +10,15 @@ products:
 detail:
     path:     /detail
     defaults:  { _controller: basclaBundle:Default:detail }
+ajouterEvent:
+    path:     /ajouterEvent
+    defaults:  { _controller: basclaBundle:Default:ajouterEvent }
+modifierEvent:
+    path:     /modifierEvent
+    defaults:  { _controller: basclaBundle:Default:modifierEvent }
+SupprimerEvent:
+    path:     /supprimerEvent
+    defaults:  { _controller: basclaBundle:Default:supprimerEvent }
 
 
 
