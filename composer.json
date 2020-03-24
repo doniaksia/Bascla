@@ -16,6 +16,7 @@
     },
     "require": {
         "php": ">=5.5.9",
+        "adesigns/calendar-bundle": "^1.1",
         "almasaeed2010/adminlte": "~3.0",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/orm": "^2.5",
