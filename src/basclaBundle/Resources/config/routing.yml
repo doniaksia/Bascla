@@ -1,3 +1,7 @@
+bascla_Controller_eventController:
+    resource: "@basclaBundle/Resources/config/routing/event.php"
+    prefix:   /Controller/eventController
+
 home:
     path:     /home
     defaults:  { _controller: basclaBundle:Default:index }
@@ -19,6 +23,18 @@ modifierEvent:
 SupprimerEvent:
     path:     /supprimerEvent
     defaults:  { _controller: basclaBundle:Default:supprimerEvent }
+CatalogueEvents:
+    path:     /CatalogueEvents
+    defaults:  { _controller: basclaBundle:Event:CatalogueEvents }
+detailEvent:
+    path:     /detailEvent/{id}
+    defaults:  { _controller: basclaBundle:Event:detailEvent }
+ajax_search:
+    path:     /search
+    defaults:  { _controller: basclaBundle:Event:search }
+
+
+
 
 
 

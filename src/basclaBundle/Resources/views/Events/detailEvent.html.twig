@@ -1,0 +1,117 @@
+{%  extends 'base.html.twig' %}
+{% block header %}
+    {{ parent() }}
+
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!--webfont-->
+    <link href="{{ asset('Front/css/bootstrap.css') }}" rel='stylesheet' type='text/css' />
+    <!-- jQuery (Bootstrap's JavaScript plugins) -->
+    <script src="{{ asset('Front/js/jquery.min.js') }}"></script>
+    <!-- Custom Theme files -->
+    <link href="{{ asset('Front/css/form.css') }}" rel="stylesheet" type="text/css" media="all" />
+    <link href='http://fonts.googleapis.com/css?family=Roboto:500,900,100,300,700,400' rel='stylesheet' type='text/css'>
+    <script src="{{ asset('Front/js/jquery.easydropdown.js') }}"></script>
+{% endblock %}
+{% block content %}
+    <script src='{{ asset('ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js') }}'></script><script src="{{ asset('m.servedby-buysellads.com/monetization.js') }}" type="text/javascript"></script>
+
+    <script async src='{{asset('js/autotrack.js')}}'></script>
+    <div class="product">
+        <div class="container">
+            <div class="ctnt-bar cntnt">
+                <div class="content-bar">
+                    <div class="single-page">
+                        <div class="product-head">
+                            <a href="{{ path('home') }}">Home</a> <span>::</span>
+                        </div>
+
+                        <!--//details-product-slider-->
+                        <div class="details-left-slider">
+                            <div class="grid images_3_of_2">
+                                <div class="flexslider">
+                                    <!-- FlexSlider -->
+                                    <script src="{{ asset('Front/js/imagezoom.js') }}"></script>
+                                    <script defer src="{{ asset('Front/js/jquery.flexslider.js') }}"></script>
+                                    <link rel="stylesheet" href="{{ asset('Front/css/flexslider.css') }}" type="text/css" media="screen" />
+                                    <script src="{{ asset('Front/js/responsiveslides.min.js') }}"></script>
+
+                                    <script>
+                                        // Can also be used with $(document).ready()
+                                        $(window).load(function() {
+                                            $('.flexslider').flexslider({
+                                                animation: "slide",
+                                                controlNav: "thumbnails"
+                                            });
+                                        });
+                                    </script>
+                                    <!-- //FlexSlider-->
+                                    <ul class="slides">
+                                        <li data-thumb="images/m1.jpg">
+                                            <div class="thumb-image"> <img src="{{ asset('Front/images/m1.jpg') }}" data-imagezoom="true" class="img-responsive"> </div>
+                                        </li>
+
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="details-left-info">
+                            <h3>{{ f.title }}</h3>
+                            <h4 style="font-size: 20px; float: right;">{{ f.date }}</h4>
+                            <p><label>$</label> 300 <a href="#"></a></p>
+
+                            <div class="btn_form">
+                                <a href="cart.html">Participate</a>
+                            </div>
+                            <div class="bike-type">
+                                <h6 style="font-size: 20px; font-family: 'Lato Heavy'" >debut  ::<a> {{ f.heurDeb }}</a></h6>
+                                <h6 style="font-size: 20px; font-family: 'Lato Heavy'" >Fin  ::<a> {{ f.heureFin }}</a></h6>
+
+                                <h6 style="font-size: 20px; font-family: 'Lato Heavy'" >TYPE  ::<a> {{ f.type }}</a></h6>
+                            </div>
+                            <h6 style="font-size: 20px; font-family: 'Lato Heavy';">Description  ::</h6>
+                            <p class="desc">{{ f.description }}</p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            <!---728x90--->
+
+            <div class="single-bottom2">
+                <h6 style="font-size: 20px; font-palette: light;">Related Products</h6>
+                {% for i in F| slice(0,5) if i.type == f.type%}
+                <div class="product">
+                    <div class="product-desc">
+                        <div class="product-img product-img2">
+                            <img src="images/s1.jpg" class="img-responsive " alt=""/>
+                        </div>
+                        <div class="prod1-desc">
+                            <h5><a class="product_link" href="{{ path('detailEvent', {'id' : i.id}
+                                ) }}">{{ i.title }}</a></h5>
+                            <p class="product_descr">{{ i.description }}. </p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="product_price">
+                        <p><label>$</label> 300 <a href="#"></a></p>
+                        <a class="button1" href="cart.html"><span>Participate</span></a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+               {% endfor %}
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}
+{% block javascript %}
+{{ parent() }}
+
+
+{% endblock %}

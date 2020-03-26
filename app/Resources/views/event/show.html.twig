@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Event</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ event.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ event.title }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ event.date }}</td>
+            </tr>
+            <tr>
+                <th>Heurdeb</th>
+                <td>{{ event.heurDeb }}</td>
+            </tr>
+            <tr>
+                <th>Heurefin</th>
+                <td>{{ event.heureFin }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ event.description }}</td>
+            </tr>
+            <tr>
+                <th>Pic</th>
+                <td>{{ event.pic }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ event.etat }}</td>
+            </tr>
+            <tr>
+                <th>Lieu</th>
+                <td>{{ event.lieu }}</td>
+            </tr>
+            <tr>
+                <th>Categorie</th>
+                <td>{{ event.categorie }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ event.type }}</td>
+            </tr>
+            <tr>
+                <th>Capacite</th>
+                <td>{{ event.capacite }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('Controller_eventController_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('Controller_eventController_edit', { 'id': event.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -6,7 +6,7 @@
 
 </head>
 <body>
-{% block header %}
+{% block stylesheets %}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -17,6 +17,10 @@
     <link href="{{ asset('Back/vendor/pg-calendar/css/pignose.calendar.min.css') }}" rel="stylesheet">
     <link href="{{ asset('Back/vendor/chartist/css/chartist.min.css') }}" rel="stylesheet">
     <link href="{{ asset('Back/css/style.css') }}" rel="stylesheet">
+
+{% endblock %}
+{% block header %}
+
 
 
     <div id="preloader">
@@ -282,9 +286,9 @@
     </div>
 
 
-
 {% endblock %}
 {% block content %}
+
 {% endblock %}
 
 {% block javascript %}

@@ -38,4 +38,8 @@ class DefaultController extends Controller
     {
         return $this->render('@bascla\detail.html.twig');
     }
+    public function CatalogueEventsAction()
+    {
+        return $this->render('@bascla\Events\CatalogueEvents.html.twig');
+    }
 }
