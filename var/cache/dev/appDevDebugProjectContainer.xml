@@ -18,6 +18,7 @@
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
       <parameter key="AppBundle">AppBundle\AppBundle</parameter>
       <parameter key="basclaBundle">basclaBundle\basclaBundle</parameter>
+      <parameter key="FullCalendarBundle">Toiba\FullCalendarBundle\FullCalendarBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -70,6 +71,11 @@
         <parameter key="path">C:\wamp64\www\bascla\src\basclaBundle</parameter>
         <parameter key="namespace">basclaBundle</parameter>
       </parameter>
+      <parameter key="FullCalendarBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">C:\wamp64\www\bascla\vendor\toiba\fullcalendar-bundle</parameter>
+        <parameter key="namespace">Toiba\FullCalendarBundle</parameter>
+      </parameter>
       <parameter key="DebugBundle" type="collection">
         <parameter key="parent">null</parameter>
         <parameter key="path">C:\wamp64\www\bascla\vendor\symfony\symfony\src\Symfony\Bundle\DebugBundle</parameter>
@@ -111,6 +117,7 @@
     <parameter key="mailer_password">null</parameter>
     <parameter key="secret">ThisTokenIsNotSoSecretChangeIt</parameter>
     <parameter key="locale">en</parameter>
+    <parameter key="images">C:\wamp64\www\bascla/web/uploads/images</parameter>
     <parameter key="fragment.renderer.hinclude.global_template"></parameter>
     <parameter key="fragment.path">/_fragment</parameter>
     <parameter key="kernel.secret">ThisTokenIsNotSoSecretChangeIt</parameter>
@@ -2713,6 +2720,14 @@
         <argument>!bascla</argument>
       </call>
       <call method="addPath">
+        <argument>C:\wamp64\www\bascla\vendor\toiba\fullcalendar-bundle/Resources/views</argument>
+        <argument>FullCalendar</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\wamp64\www\bascla\vendor\toiba\fullcalendar-bundle/Resources/views</argument>
+        <argument>!FullCalendar</argument>
+      </call>
+      <call method="addPath">
         <argument>C:\wamp64\www\bascla\vendor\symfony\symfony\src\Symfony\Bundle\DebugBundle/Resources/views</argument>
         <argument>Debug</argument>
       </call>
@@ -3301,6 +3316,7 @@
       <call method="setEntityNamespaces">
         <argument type="collection">
           <argument key="basclaBundle">basclaBundle\Entity</argument>
+          <argument key="FullCalendarBundle">Toiba\FullCalendarBundle\Entity</argument>
         </argument>
       </call>
       <call method="setMetadataCacheImpl">
@@ -3347,12 +3363,17 @@
       <argument type="service" id="annotations.cached_reader"/>
       <argument type="collection">
         <argument>C:\wamp64\www\bascla\src\basclaBundle\Entity</argument>
+        <argument>C:\wamp64\www\bascla\vendor\toiba\fullcalendar-bundle\Entity</argument>
       </argument>
     </service>
     <service id="doctrine.orm.default_metadata_driver" class="Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain" public="false">
       <call method="addDriver">
         <argument type="service" id="doctrine.orm.default_annotation_metadata_driver"/>
         <argument>basclaBundle\Entity</argument>
+      </call>
+      <call method="addDriver">
+        <argument type="service" id="doctrine.orm.default_annotation_metadata_driver"/>
+        <argument>Toiba\FullCalendarBundle\Entity</argument>
       </call>
     </service>
     <service id="doctrine_cache.providers.doctrine.orm.default_metadata_cache" class="Doctrine\Common\Cache\ArrayCache" public="true">
@@ -3460,6 +3481,11 @@
     </service>
     <service id="framework_extra_bundle.argument_name_convertor" class="Sensio\Bundle\FrameworkExtraBundle\Request\ArgumentNameConverter" public="false">
       <argument type="service" id="argument_metadata_factory"/>
+    </service>
+    <service id="fullcalendar.service.serializer" class="Toiba\FullCalendarBundle\Service\Serializer" public="false"/>
+    <service id="fullcalendar.service.calendar" class="Toiba\FullCalendarBundle\Service\Calendar" public="true">
+      <argument type="service" id="fullcalendar.service.serializer"/>
+      <argument type="service" id="debug.event_dispatcher"/>
     </service>
     <service id="twig.extension.dump" class="Symfony\Bridge\Twig\Extension\DumpExtension" public="false">
       <tag name="twig.extension"/>

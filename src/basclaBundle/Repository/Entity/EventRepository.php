@@ -16,7 +16,10 @@ class EventRepository extends EntityRepository
             ->createQuery(
                 'SELECT p
                 FROM basclaBundle:Event p
-                WHERE p.title LIKE :str'
+                WHERE p.title LIKE :str or
+                p.description LIKE :str or 
+                p.categorie
+              LIKE :str'
             )
             ->setParameter('str', '%'.$str.'%')
             ->getResult();

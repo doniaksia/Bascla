@@ -22,14 +22,8 @@ class DefaultController extends Controller
     {
         return $this->render('@bascla\Events\ajouterEvent.html.twig');
     }
-    public function modifierEventAction()
-    {
-        return $this->render('@bascla\Events\modifierEvent.html.twig');
-    }
-    public function supprimerEventAction()
-    {
-        return $this->render('@bascla\Events\supprimerEvent.html.twig');
-    }
+
+
     public function productsAction()
     {
         return $this->render('@bascla\catalogue.html.twig');
@@ -41,5 +35,9 @@ class DefaultController extends Controller
     public function CatalogueEventsAction()
     {
         return $this->render('@bascla\Events\CatalogueEvents.html.twig');
+    }
+    public function afficherEventAction()
+    {
+        return $this->render('@bascla\Events\afficherEvent.html.twig');
     }
 }

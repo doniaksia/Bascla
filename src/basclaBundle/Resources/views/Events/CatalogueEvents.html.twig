@@ -4,29 +4,20 @@
 
 {% endblock %}
 {% block content %}
-
     <div class="bikes">
     <div class="mountain-sec">
 
 
 
-        <div class="span3 widget-span widget-type-raw_html custom-search" style="" data-widget-type="raw_html" data-x="4" data-w="3">
-            <div class="cell-wrapper layout-widget-wrapper">
-    <span id="hs_cos_wrapper_module_14308928327274411" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_raw_html" style="" data-hs-cos-general-type="widget" data-hs-cos-type="raw_html"><form method="GET" action="https://www.shopwithscrip.com/Search?" role="search" class="navbar-form navbar-left ng-pristine ng-valid" id="express-form" novalidate="">
-<input required="" name="q" placeholder="Search"  id="search" class="form-control tt-input" id="express-form-typeahead" autocomplete="off" spellcheck="false" dir="auto" type="text">
-<button class="search-btn" type="submit"><span class="icon"></span></button>
-    </form>
-    </span>
-            </div>
-            <!--end layout-widget-wrapper -->
-        </div>
+
         <ul class="nav1" id="side-menu">
-            <li>
                 <ul class="nav1 nav-second-level" id="entitiesNav">
                 </ul>
-            </li>
         </ul><br><br><br><br>
-
+        <div class="container2">
+            <input type="text" id="search" placeholder="Search...">
+            <div class="search"></div>
+        </div>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
         <script type="text/javascript">
@@ -56,7 +47,7 @@
                                             if (key === 'posts') {
                                                 if (id !== 'error') {
                                                     console.log(value[1]);
-                                                    entitySelector.append('<li><b>'+value[1]+'</b><a href="/bascla/detailEvent/'+id+'">'+'</a></li>');
+                                                    entitySelector.append('<p  style="font-size: 20px; font-family: lato Light ; "><a href="/bascla/web/app_dev.php/bascla/detailEvent/'+id+'">'+value[0]+'</a></p><p  style="font-size: 10px; font-family: Lato Heavy ; ">'+value[1]+'</p>');
                                                 } else {
                                                     entitySelector.append('<li class="errorLi">'+value+'</li>');
                                                 }
@@ -73,7 +64,7 @@
         <h2>Events</h2>
         {% for i in Clubs %}
         <a href="single.html"><div class="bike">
-                <img src="images/bik3.jpg" alt=""/>
+                <img src="{{ asset('uploads/images/') }}{{ i.pic}}" alt=""/>
                 <div class="bike-cost">
                     <div class="bike-mdl">
                         <h4>{{i.title}}<span>{{i.date}}</span></h4>

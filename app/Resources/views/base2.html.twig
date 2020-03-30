@@ -13,8 +13,8 @@
     <title>Focus - Bootstrap Admin Dashboard </title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('Back/images/favicon.png') }}">
-
     <link href="{{ asset('Back/vendor/pg-calendar/css/pignose.calendar.min.css') }}" rel="stylesheet">
+
     <link href="{{ asset('Back/vendor/chartist/css/chartist.min.css') }}" rel="stylesheet">
     <link href="{{ asset('Back/css/style.css') }}" rel="stylesheet">
 
@@ -167,7 +167,7 @@
                 <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
                                 class="icon icon-single-04"></i><span class="nav-text">Dashboard</span></a>
                     <ul aria-expanded="false">
-                        <li><a href="index.html">Dashboard 1</a></li>
+                        <li><a href="{{ path('homeAdmin') }}">Dashboard 1</a></li>
                     </ul>
                 </li>
 
@@ -186,10 +186,9 @@
                 <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
                                 class="icon icon-world-2"></i><span class="nav-text">Events</span></a>
                     <ul aria-expanded="false">
-                        <li><a href="app-profile.html">ajouter</a></li>
-                        <li><a href="app-profile.html">modifier</a></li>
-                        <li><a href="app-profile.html">supprimer</a></li>
-                        <li><a href="app-calender.html">confirmer demandes</a></li>
+                        <li><a href="{{ path('ajouterEvent') }}">ajouter</a></li>
+                        <li><a href="{{ path('afficherEvent') }}">modifier ou supprimer</a></li>
+                        <li><a href="{{ path('ajouterEvent') }}">confirmer demandes</a></li>
                     </ul>
                 </li>
 

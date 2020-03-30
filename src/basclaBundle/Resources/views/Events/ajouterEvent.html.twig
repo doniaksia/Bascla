@@ -1,144 +1,326 @@
 {% extends 'base2.html.twig' %}
+
 {% block stylesheets %}
     {{ parent() }}
-    <link href="{{ asset('Back/vendor/fullcalendar/css/fullcalendar.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('Back/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('Back/form/css/main.css') }}" rel="stylesheet" media="all" xmlns="http://www.w3.org/1999/html">
+
+    <link rel="icon" type="image/png" href="{{ asset('Back/form/images/icons/favicon.ico') }}"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('Back/form/vendor/bootstrap/css/bootstrap.min.css') }}">
+    <!--===============================================================================================-->
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('Back/form/fonts/Linearicons-Free-v1.0.0/icon-font.min.css') }}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('Back/form/fonts/iconic/css/material-design-iconic-font.min.css') }}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('Back/form/vendor/animate/animate.css') }}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('Back/form/vendor/css-hamburgers/hamburgers.min.css') }}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('Back/form/vendor/animsition/css/animsition.min.css') }}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('Back/form/vendor/select2/select2.min.css') }}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('Back/form/vendor/daterangepicker/daterangepicker.css') }}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('Back/form/css/util.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('Back/form/css/main.css') }}">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    <script src="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.js"></script>
+    <meta charset="utf-8">
 {% endblock %}
-
 {% block content %}
+    <div class="container-contact100">
+        <div class="contact100-map" id="google_map" data-map-x="40.722047" data-map-y="-73.986422" data-pin="images/icons/map-marker.png" data-scrollwhell="0" data-draggable="1"></div>
 
-{{ parent() }}
-    <div class="content-body">
-        <div class="container-fluid">
-            <div class="row page-titles mx-0">
-                <div class="col-sm-6 p-md-0">
-                    <div class="welcome-text">
-                        <h4>Hi, welcome back!</h4>
-                        <p class="mb-0">Your business dashboard template</p>
-                    </div>
+        <div class="contact100-more">
+            <i class="zmdi zmdi-phone-in-talk"></i>
+            (+100) 345 6389
+        </div>
+
+        <div class="wrap-contact100">
+            {{ form_start(fo) }}
+				<span class="contact100-form-title">
+					New event to add :
+				</span>
+
+                <div class="wrap-input100 validate-input" data-validate="Title is required">
+                    {{ form_label(fo.title, "Title", {'label_attr' : {'class' : 'label-input100'}}) }}
+                    {{ form_widget(fo.title, { 'attr': {'class': 'input100' , 'placeholder' : 'title ...'} }) }}
+                    <span class="focus-input100"></span>
                 </div>
-                <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0)">App</a></li>
-                        <li class="breadcrumb-item active"><a href="javascript:void(0)">Calerdar</a></li>
-                    </ol>
+
+                <div class="wrap-input100 validate-input" data-validate = "description is required">
+                    {{ form_label(fo.description, "Description" ,  {'label_attr' : {'class' : 'label-input100'}}) }}
+
+                    {{ form_widget(fo.description, { 'attr': {'class': 'input100' , 'placeholder' : 'Description ...'} }) }}
+
+                    <span class="focus-input100"></span>
+                </div>
+
+
+                <div class="ui container" style=" margin-left: -150px;">
+
+
+                    <div class="wrap-input100" id="example2" style="margin-bottom: 25px;">
+                        {{ form_label(fo.date,"Due Date" ,  {'label_attr' : {'class' : 'label-input100'}}) }}
+
+                    </br>
+                        <div class="ui input left icon">
+                            <i class="calendar icon"></i>
+                            {{ form_widget(fo.date, { 'attr': {'class': 'input100' , 'autocomplete' : 'off' , 'placeholder' : 'Due Date ...'} }) }}
+
+                            <span class="focus-input100"></span>
+                        </div>
+                    </div>
+                    <br/>
+
+                    <div class="wrap-input100" id="example3" style="margin-bottom: 25px;">
+                        {{ form_label(fo.heurDeb, "Debut hour" , {'label_attr' : {'class' : 'label-input100'}}) }}
+
+                        </br>
+
+                        <div class="ui input left icon">
+                            <i class="time icon"></i>
+
+                            {{ form_widget(fo.heurDeb, { 'attr': {'class': 'input100' , 'autocomplete' : 'off' , 'placeholder' : 'Debut ...'} }) }}
+
+                            <span class="focus-input100"></span>
+
+                        </div>
+                    </div>
+
+                    <br/>
+
+                    <div class="wrap-input100" id="example6">
+                        {{ form_label(fo.heureFin,"Final Hour" ,  {'label_attr' : {'class' : 'label-input100'}}) }}
+                        </br>
+
+                        <div class="ui input left icon">
+                            <i class="time icon"></i>
+
+                            {{ form_widget(fo.heureFin, { 'attr': {'class': 'input100' , 'autocomplete' : 'off' , 'placeholder' : 'Final ...'} }) }}
+
+                            <span class="focus-input100"></span>
+
+                        </div>
+                    </div>
+                    <br/>
+
+
+
+
+
+                </div>
+            </br>
+
+                <script>
+                    $('#example1').calendar();
+                    $('#example2').calendar({
+                        type: 'date'
+                    });
+                    $('#example3').calendar({
+                        type: 'time'
+                    });
+                    $('#rangestart').calendar({
+                        type: 'date',
+                        endCalendar: $('#rangeend')
+                    });
+                    $('#rangeend').calendar({
+                        type: 'date',
+                        startCalendar: $('#rangestart')
+                    });
+                    $('#example4').calendar({
+                        startMode: 'year'
+                    });
+                    $('#example5').calendar();
+                    $('#example6').calendar({
+                        ampm: false,
+                        type: 'time'
+                    });
+                    $('#example7').calendar({
+                        type: 'month'
+                    });
+                    $('#example8').calendar({
+                        type: 'year'
+                    });
+                    $('#example9').calendar();
+                    $('#example10').calendar({
+                        on: 'hover'
+                    });
+                    var today = new Date();
+                    $('#example11').calendar({
+                        minDate: new Date(today.getFullYear(), today.getMonth(), today.getDate() - 5),
+                        maxDate: new Date(today.getFullYear(), today.getMonth(), today.getDate() + 5)
+                    });
+                    $('#example12').calendar({
+                        monthFirst: false
+                    });
+                    $('#example13').calendar({
+                        monthFirst: false,
+                        formatter: {
+                            date: function (date, settings) {
+                                if (!date) return '';
+                                var day = date.getDate();
+                                var month = date.getMonth() + 1;
+                                var year = date.getFullYear();
+                                return day + '/' + month + '/' + year;
+                            }
+                        }
+                    });
+                    $('#example14').calendar({
+                        inline: true
+                    });
+                    $('#example15').calendar();
+                </script>
+            <style>
+                .button2 {
+                    transition-duration: 0.4s;
+                }
+
+                .button2:hover {
+                    background-color: #1a252f; /* Green */
+                    color: white;
+                }
+            </style>
+            <div class="value">
+                <div class="input-group js-input-file">
+
+                    {{ form_widget(fo.pic, { 'attr': {'class': 'button2'  ,  'type' : 'file' , 'name' : 'pic' , 'id' : 'file'} }) }}
+
+                </div>
+                <div class="label--desc" style="font-size: 20px;">Upload your picture</div>
+            </div>
+
+            <div class="wrap-input100" id="example2" style="margin-top: 25px;">
+                {{ form_label(fo.capacite,"Capacity" ,  {'label_attr' : {'class' : 'label-input100'}}) }}
+
+                </br>
+                <div class="ui input left icon">
+                    {{ form_widget(fo.capacite, { 'attr': {'class': 'input100'  , 'type' : 'number' , 'step' : '1' } }) }}
+                </br>
+                    <span class="focus-input100"></span>
                 </div>
             </div>
-            <!-- row -->
+            <style>
 
 
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-intro-title">Calendar</h4>
+    .box {
+margin-top: 20px;
+    }
 
-                            <div class="">
-                                <div id="external-events" class="my-3">
-                                    <p>Drag and drop your event or click in the calendar</p>
-                                    <div class="external-event" data-class="bg-primary"><i class="fa fa-move"></i>New Theme Release</div>
-                                    <div class="external-event" data-class="bg-success"><i class="fa fa-move"></i>My Event
-                                    </div>
-                                    <div class="external-event" data-class="bg-warning"><i class="fa fa-move"></i>Meet manager</div>
-                                    <div class="external-event" data-class="bg-dark"><i class="fa fa-move"></i>Create New theme</div>
-                                </div>
-                                <!-- checkbox -->
-                                <div class="checkbox checkbox-event pt-3 pb-5">
-                                    <input id="drop-remove" class="styled-checkbox" type="checkbox">
-                                    <label class="ml-2 mb-0" for="drop-remove">Remove After Drop</label>
-                                </div>
-                                <a href="javascript:void()" data-toggle="modal" data-target="#add-category" class="btn btn-primary btn-event w-100">
-                                    <span class="align-middle"><i class="ti-plus"></i></span> Create New
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-9">
-                    <div class="card">
-                        <div class="card-body">
-                            <div id="calendar" class="app-fullcalendar"></div>
-                        </div>
-                    </div>
-                </div>
-                <!-- BEGIN MODAL -->
-                <div class="modal fade none-border" id="event-modal">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title"><strong>Add New Event</strong></h4>
-                            </div>
-                            <div class="modal-body">
-                                <input class="form-control form-white" placeholder="Enter cat" type="text" name="category-name">
+    .box select {
+        background-color: #1B242F;
+        color: white;
+        padding: 12px;
+        width: 250px;
+        border: none;
+        font-size: 20px;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+        -webkit-appearance: button;
+        appearance: button;
+        outline: none;
+    }
 
-                                <script>
-                                    echo calendar. ;
-                                </script>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-success save-event waves-effect waves-light">Create
-                                    event</button>
+    .box::before {
+        content: "\f13a";
+        font-family: FontAwesome;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 20%;
+        height: 100%;
+        text-align: center;
+        font-size: 28px;
+        line-height: 45px;
+        color: rgba(255, 255, 255, 0.5);
+        background-color: rgba(255, 255, 255, 0.1);
+        pointer-events: none;
+    }
 
-                                <button type="button" class="btn btn-danger delete-event waves-effect waves-light" data-dismiss="modal">Delete</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Modal Add Category -->
-                <div class="modal fade none-border" id="add-category">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title"><strong>Add a category</strong></h4>
-                            </div>
-                            <div class="modal-body">
-                                <form>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label class="control-label">Category Name</label>
-                                            <input class="form-control form-white" placeholder="Enter name" type="text" name="category-name">
+    .box:hover::before {
+        color: rgba(255, 255, 255, 0.6);
+        background-color: rgba(255, 255, 255, 0.2);
+    }
 
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="control-label">Choose Category Color</label>
-                                            <select class="form-control form-white" data-placeholder="Choose a color..." name="category-color">
-                                                <option value="success">Success</option>
-                                                <option value="danger">Danger</option>
-                                                <option value="">Danger</option>
+    .box select option {
+        padding: 30px;
+    }
+</style>
 
-                                                <option value="info">Info</option>
-                                                <option value="pink">Pink</option>
-                                                <option value="primary">Primary</option>
-                                                <option value="warning">Warning</option>
-                                            </select>
-                                        </div>
+            <div class="box">
+                {{ form_label(fo.type,"Type : ", { 'label_attr': {'class': 'label-input100'  } }) }}
+                <br/>
+
+                {{ form_widget(fo.type) }}
 
 
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-danger waves-effect waves-light save-category" data-dismiss="modal">Save</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div id="dropDownSelect1"></div>
+
             </div>
 
+
+            <div class="box" style="margin-top: 25px;">
+                {{ form_label(fo.lieu,"Lieu : ", { 'label_attr': {'class': 'label-input100'  } }) }}
+            </br>
+                {{ form_widget(fo.lieu) }}
+
+                <div id="dropDownSelect1"></div>
+
+            </div>
+
+
+
+
+                <div class="container-contact100-form-btn" style="margin-top: 50px;">
+                    <div class="wrap-contact100-form-btn">
+                        <div class="contact100-form-bgbtn"></div>
+                        {{ form_widget(fo.save, { 'attr': {'class': 'contact100-form-btn' , 'value' : 'save' } }) }}
+
+
+                    </div>
+                </div>
+            </form>
+            {{ form_end(fo) }}
         </div>
     </div>
 
 
+
+
 {% endblock %}
-
-{% block javascript %}
+{%  block javascript %}
 {{ parent() }}
-<script src="{{ asset('Back/js/styleSwitcher.js') }}"></script>
-    <script src="{{ asset('Back/vendor/jqueryui/js/jquery-ui.min.js') }}"></script>
-    <script src="{{ asset('Back/vendor/moment/moment.min.js') }}"></script>
+ <!-- Jquery JS-->
+   <script src="{{ asset('Back/form/vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ asset('Back/form/vendor/animsition/js/animsition.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ asset('Back/form/vendor/bootstrap/js/popper.js') }}"></script>
+	<script src="{{ asset('Back/form/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ asset('Back/form/vendor/select2/select2.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ asset('Back/form/vendor/daterangepicker/moment.min.js') }}"></script>
+	<script src="{{ asset('Back/form/vendor/daterangepicker/daterangepicker.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ asset('Back/form/vendor/countdowntime/countdowntime.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKFWBqlKAGCeS1rMVoaNlwyayu0e0YRes"></script>
+	<script src="{{ asset('Back/form/js/map-custom.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ asset('Back/form/js/main.js') }}"></script>
 
-    <script src="{{ asset('Back/vendor/fullcalendar/js/fullcalendar.min.js') }}"></script>
-    <script src="{{ asset('Back/js/plugins-init/fullcalendar-init.js') }}"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
 {% endblock %}

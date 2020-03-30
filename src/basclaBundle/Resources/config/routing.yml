@@ -11,18 +11,26 @@ homeAdmin:
 products:
     path:     /products
     defaults:  { _controller: basclaBundle:Default:products }
+
 detail:
     path:     /detail
     defaults:  { _controller: basclaBundle:Default:detail }
+
 ajouterEvent:
     path:     /ajouterEvent
-    defaults:  { _controller: basclaBundle:Default:ajouterEvent }
+    defaults:  { _controller: basclaBundle:Event:ajouterEvent }
+
+afficherEvent:
+    path:     /afficherEvent
+    defaults:  { _controller: basclaBundle:Event:afficherEvent }
 modifierEvent:
-    path:     /modifierEvent
-    defaults:  { _controller: basclaBundle:Default:modifierEvent }
-SupprimerEvent:
-    path:     /supprimerEvent
-    defaults:  { _controller: basclaBundle:Default:supprimerEvent }
+    path:     /modifierEvent/{id}
+    defaults:  { _controller: basclaBundle:Event:modifierEvent }
+
+supprimerEvent:
+    path:     /supprimerEvent/{id}
+    defaults:  { _controller: basclaBundle:Event:supprimerEvent }
+
 CatalogueEvents:
     path:     /CatalogueEvents
     defaults:  { _controller: basclaBundle:Event:CatalogueEvents }

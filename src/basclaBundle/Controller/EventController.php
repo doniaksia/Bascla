@@ -9,7 +9,10 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\Response;
+use basclaBundle\Form\EventType;
+
 
 /**
  * Event controller.
@@ -27,6 +30,12 @@ class EventController extends Controller
         return $this->render('@bascla/Events/CatalogueEvents.html.twig' , array('Clubs' => $Clubs));
 
     }
+    public function afficherEventAction()
+    {
+
+        $Clubs = $this ->getDoctrine()->getRepository(Event :: class)->findAll();
+        return $this->render('@bascla/Events/afficherEvent.html.twig' , array('Clubs' => $Clubs));
+    }
 
     public function searchAction(Request $request)
     {
@@ -34,7 +43,7 @@ class EventController extends Controller
         $requestString = $request->get('q');
             $posts =  $em->getRepository('basclaBundle:Event')->findEntitiesByString($requestString);
         if(!$posts) {
-            $result['posts']['error'] = "Post Not found :( ";
+            $result['posts']['error'] = "Event Not found :( ";
         } else {
             $result['posts'] = $this->getRealEntities($posts);
         }
@@ -42,7 +51,7 @@ class EventController extends Controller
     }
     public function getRealEntities($posts){
         foreach ($posts as $posts){
-            $realEntities[$posts->getId()] = [$posts->getTitle(),$posts->getDescription()];
+            $realEntities[$posts->getId()] = [$posts->getTitle(),$posts->getDate()];
 
         }
         return $realEntities;
@@ -56,50 +65,88 @@ class EventController extends Controller
     }
 
 
-
-
-
-
-
-    /**
-     * Displays a form to edit an existing event entity.
-     *
-     */
-    public function editAction(Request $request, Event $event)
+    public function ajouterEventAction(Request $request)
     {
-        $deleteForm = $this->createDeleteForm($event);
-        $editForm = $this->createForm('basclaBundle\Form\EventType', $event);
-        $editForm->handleRequest($request);
+        $club = new Event();
+        $form = $this -> createForm( EventType::class, $club);
+        $form =  $form ->handleRequest($request);
 
-        if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('Controller_eventController_edit', array('id' => $event->getId()));
-        }
 
-        return $this->render('event/edit.html.twig', array(
-            'event' => $event,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        ));
+        if ($form->isSubmitted())
+        {
+            $brochureFile = $form->get('pic')->getData();
+
+            // this condition is needed because the 'brochure' field is not required
+            // so the PDF file must be processed only when a file is uploaded
+            if ($brochureFile) {
+                $originalFilename = pathinfo($brochureFile->getClientOriginalName(), PATHINFO_FILENAME);
+                // this is needed to safely include the file name as part of the URL
+                $safeFilename = transliterator_transliterate('Any-Latin; Latin-ASCII; [^A-Za-z0-9_] remove; Lower()', $originalFilename);
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$brochureFile->guessExtension();
+
+                try {
+                    $brochureFile->move(
+                        $this->getParameter('images'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                }
+
+                $club->setPic($newFilename);
+            $em  = $this->getDoctrine()->getManager();
+            $em->persist($club);
+            $em->flush();
+            return $this->redirectToRoute('homeAdmin');
+        }}
+        return $this->render( '@bascla/Events/ajouterEvent.html.twig', array('fo' => $form ->createView()));
     }
 
-    /**
-     * Deletes a event entity.
-     *
-     */
-    public function deleteAction(Request $request, Event $event)
+    public function modifierEventAction(Request $request, $id)
     {
-        $form = $this->createDeleteForm($event);
-        $form->handleRequest($request);
+        $em = $this->getDoctrine()->getManager();
+        $club = $em->getRepository(Event::class)->find($id);
+        $form = $this -> createForm( EventType::class, $club);
+        $form =  $form ->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($event);
+
+        if ($form->isSubmitted())
+        {
+            $brochureFile = $form->get('pic')->getData();
+
+            // this condition is needed because the 'brochure' field is not required
+            // so the PDF file must be processed only when a file is uploaded
+            if ($brochureFile) {
+                $originalFilename = pathinfo($brochureFile->getClientOriginalName(), PATHINFO_FILENAME);
+                // this is needed to safely include the file name as part of the URL
+                $safeFilename = transliterator_transliterate('Any-Latin; Latin-ASCII; [^A-Za-z0-9_] remove; Lower()', $originalFilename);
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$brochureFile->guessExtension();
+
+                try {
+                    $brochureFile->move(
+                        $this->getParameter('images'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                }
+
+                $club->setPic($newFilename);
+            $em  = $this->getDoctrine()->getManager();
             $em->flush();
-        }
+            return $this->redirectToRoute('homeAdmin');
+        }}
+        return $this->render( '@bascla/Events/modifierEvent.html.twig', array('fo' => $form ->createView()));
+    }
 
-        return $this->redirectToRoute('Controller_eventController_index');
+
+    public function supprimerEventAction($id){
+        $em = $this ->getDoctrine()->getManager();
+        $club = $em ->getRepository(Event :: class)->find($id);
+        $em ->remove($club);
+        $em->flush();
+
+        return $this->redirectToRoute('afficherEvent');
+
     }
 
     /**
@@ -109,12 +156,5 @@ class EventController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm(Event $event)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('Controller_eventController_delete', array('id' => $event->getId())))
-            ->setMethod('DELETE')
-            ->getForm()
-        ;
-    }
+
 }

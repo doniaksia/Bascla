@@ -50,7 +50,7 @@
                                     <!-- //FlexSlider-->
                                     <ul class="slides">
                                         <li data-thumb="images/m1.jpg">
-                                            <div class="thumb-image"> <img src="{{ asset('Front/images/m1.jpg') }}" data-imagezoom="true" class="img-responsive"> </div>
+                                            <div class="thumb-image"> <img src="{{ asset('uploads/images/') }}{{ f.pic}}" data-imagezoom="true" class="img-responsive"> </div>
                                         </li>
 
                                     </ul>
@@ -84,7 +84,7 @@
 
             <div class="single-bottom2">
                 <h6 style="font-size: 20px; font-palette: light;">Related Products</h6>
-                {% for i in F| slice(0,5) if i.type == f.type%}
+                {% for i in F| slice(0,5) if i.type == f.type and i.id != f.id%}
                 <div class="product">
                     <div class="product-desc">
                         <div class="product-img product-img2">

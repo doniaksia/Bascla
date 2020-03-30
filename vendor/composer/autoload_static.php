@@ -23,6 +23,7 @@ class ComposerStaticInit210c59f32ca76769063a571f1453f39d
         'T' => 
         array (
             'Twig\\' => 5,
+            'Toiba\\FullCalendarBundle\\' => 25,
             'Tests\\' => 6,
         ),
         'S' => 
@@ -82,12 +83,20 @@ class ComposerStaticInit210c59f32ca76769063a571f1453f39d
         array (
             'Composer\\CaBundle\\' => 18,
         ),
+        'A' => 
+        array (
+            'AncaRebeca\\FullCalendarBundle\\' => 30,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
         'Twig\\' => 
         array (
             0 => __DIR__ . '/..' . '/twig/twig/src',
+        ),
+        'Toiba\\FullCalendarBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/toiba/fullcalendar-bundle',
         ),
         'Tests\\' => 
         array (
@@ -236,6 +245,10 @@ class ComposerStaticInit210c59f32ca76769063a571f1453f39d
         'Composer\\CaBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/composer/ca-bundle/src',
+        ),
+        'AncaRebeca\\FullCalendarBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/ancarebeca/full-calendar-bundle',
         ),
     );
 

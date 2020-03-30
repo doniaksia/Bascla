@@ -3,6 +3,9 @@
 namespace basclaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+
 
 /**
  * Event
@@ -15,9 +18,9 @@ class Event
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
@@ -58,7 +61,7 @@ class Event
 
     /**
      * @var string
-     *
+     * @Assert\Image()
      * @ORM\Column(name="pic", type="text", length=65535, nullable=true)
      */
     private $pic;
@@ -291,5 +294,12 @@ class Event
     }
 
 
+    /**
+     * @inheritDoc
+     */
+    public function toArray()
+    {
+        // TODO: Implement toArray() method.
+    }
 }
 
