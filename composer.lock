@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6f79a34f99dd0d72129adbeed23a8626",
+    "content-hash": "48febf8e077391bba10b7535c5effb9f",
     "packages": [
         {
             "name": "adesigns/calendar-bundle",
@@ -1104,6 +1104,82 @@
                 "routing"
             ],
             "time": "2019-08-10T15:40:05+00:00"
+        },
+        {
+            "name": "friendsofsymfony/user-bundle",
+            "version": "v2.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
+                "reference": "1049935edd24ec305cc6cfde1875372fa9600446"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/1049935edd24ec305cc6cfde1875372fa9600446",
+                "reference": "1049935edd24ec305cc6cfde1875372fa9600446",
+                "shasum": ""
+            },
+            "require": {
+                "paragonie/random_compat": "^1 || ^2",
+                "php": "^5.5.9 || ^7.0",
+                "symfony/form": "^2.8 || ^3.0 || ^4.0",
+                "symfony/framework-bundle": "^2.8 || ^3.0 || ^4.0",
+                "symfony/security-bundle": "^2.8 || ^3.0 || ^4.0",
+                "symfony/templating": "^2.8 || ^3.0 || ^4.0",
+                "symfony/twig-bundle": "^2.8 || ^3.0 || ^4.0",
+                "symfony/validator": "^2.8 || ^3.0 || ^4.0",
+                "twig/twig": "^1.28 || ^2.0"
+            },
+            "conflict": {
+                "doctrine/doctrine-bundle": "<1.3",
+                "symfony/doctrine-bridge": "<2.7"
+            },
+            "require-dev": {
+                "doctrine/doctrine-bundle": "^1.3",
+                "friendsofphp/php-cs-fixer": "^2.2",
+                "phpunit/phpunit": "^4.8.35|^5.7.11|^6.5",
+                "swiftmailer/swiftmailer": "^4.3 || ^5.0 || ^6.0",
+                "symfony/console": "^2.8 || ^3.0 || ^4.0",
+                "symfony/phpunit-bridge": "^2.8 || ^3.0 || ^4.0",
+                "symfony/yaml": "^2.8 || ^3.0 || ^4.0"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "FOS\\UserBundle\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christophe Coevoet",
+                    "email": "stof@notk.org"
+                },
+                {
+                    "name": "FriendsOfSymfony Community",
+                    "homepage": "https://github.com/friendsofsymfony/FOSUserBundle/contributors"
+                },
+                {
+                    "name": "Thibault Duplessis"
+                }
+            ],
+            "description": "Symfony FOSUserBundle",
+            "homepage": "http://friendsofsymfony.github.com",
+            "keywords": [
+                "User management"
+            ],
+            "time": "2018-03-08T08:59:27+00:00"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -2472,60 +2548,6 @@
             "time": "2020-02-29T10:21:57+00:00"
         },
         {
-            "name": "toiba/fullcalendar-bundle",
-            "version": "v6.2.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/toiba/FullCalendarBundle.git",
-                "reference": "d8b22cc3a159819fa2a4bbd1c7aad026c6bbad74"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/toiba/FullCalendarBundle/zipball/d8b22cc3a159819fa2a4bbd1c7aad026c6bbad74",
-                "reference": "d8b22cc3a159819fa2a4bbd1c7aad026c6bbad74",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.5|^7.0",
-                "symfony/framework-bundle": "^3.4|^4.0"
-            },
-            "require-dev": {
-                "phpspec/phpspec": "^2.5"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-4": {
-                    "Toiba\\FullCalendarBundle\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Rebeca Mora Anca",
-                    "role": "Developer",
-                    "email": "anca.rebeca@gmail.com"
-                },
-                {
-                    "name": "Théo Attali",
-                    "role": "Developer",
-                    "email": "theoattali@gmail.com"
-                }
-            ],
-            "description": "Symfony integration of FullCalendar.js library. Events can be stored with Doctrine, MongoDB, CouchDB and others",
-            "homepage": "https://github.com/toiba/FullCalendarBundle",
-            "keywords": [
-                "calendar",
-                "fullcalendar",
-                "jquery calendar",
-                "symfony calendar"
-            ],
-            "abandoned": "tattali/CalendarBundle",
-            "time": "2018-08-09T18:06:32+00:00"
-        },
-        {
             "name": "twig/twig",
             "version": "v1.42.5",
             "source": {
@@ -2750,6 +2772,60 @@
             "description": "Symfony PHPUnit Bridge",
             "homepage": "https://symfony.com",
             "time": "2020-01-14T14:27:59+00:00"
+        },
+        {
+            "name": "toiba/fullcalendar-bundle",
+            "version": "v6.2.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/toiba/FullCalendarBundle.git",
+                "reference": "d8b22cc3a159819fa2a4bbd1c7aad026c6bbad74"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/toiba/FullCalendarBundle/zipball/d8b22cc3a159819fa2a4bbd1c7aad026c6bbad74",
+                "reference": "d8b22cc3a159819fa2a4bbd1c7aad026c6bbad74",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5|^7.0",
+                "symfony/framework-bundle": "^3.4|^4.0"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "^2.5"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Toiba\\FullCalendarBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rebeca Mora Anca",
+                    "role": "Developer",
+                    "email": "anca.rebeca@gmail.com"
+                },
+                {
+                    "name": "Théo Attali",
+                    "role": "Developer",
+                    "email": "theoattali@gmail.com"
+                }
+            ],
+            "description": "Symfony integration of FullCalendar.js library. Events can be stored with Doctrine, MongoDB, CouchDB and others",
+            "homepage": "https://github.com/toiba/FullCalendarBundle",
+            "keywords": [
+                "calendar",
+                "fullcalendar",
+                "jquery calendar",
+                "symfony calendar"
+            ],
+            "abandoned": "tattali/CalendarBundle",
+            "time": "2018-08-09T18:06:32+00:00"
         }
     ],
     "aliases": [],

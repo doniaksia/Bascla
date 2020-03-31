@@ -18,8 +18,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new AppBundle\AppBundle(),
             new basclaBundle\basclaBundle(),
-            new Toiba\FullCalendarBundle\FullCalendarBundle(),
-
+            new FOS\UserBundle\FOSUserBundle(),
 
         ];
 

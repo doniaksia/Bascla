@@ -67,6 +67,7 @@ class ComposerStaticInit210c59f32ca76769063a571f1453f39d
         'F' => 
         array (
             'Fig\\Link\\' => 9,
+            'FOS\\UserBundle\\' => 15,
             'FOS\\JsRoutingBundle\\' => 20,
         ),
         'D' => 
@@ -209,6 +210,10 @@ class ComposerStaticInit210c59f32ca76769063a571f1453f39d
         'Fig\\Link\\' => 
         array (
             0 => __DIR__ . '/..' . '/fig/link-util/src',
+        ),
+        'FOS\\UserBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/friendsofsymfony/user-bundle',
         ),
         'FOS\\JsRoutingBundle\\' => 
         array (
