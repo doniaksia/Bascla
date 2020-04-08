@@ -25,4 +25,5 @@ class EventRepository extends EntityRepository
             ->getResult();
     }
 
+
 }

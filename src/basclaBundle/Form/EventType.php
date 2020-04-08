@@ -2,6 +2,7 @@
 
 namespace basclaBundle\Form;
 
+use Cassandra\Time;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -9,6 +10,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TimeType;
 class EventType extends AbstractType
 {
     /**
@@ -16,7 +18,13 @@ class EventType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('title')->add('date')->add('heurDeb')->add('heureFin')->add('description')->add( 'type' , ChoiceType::class, [
+        $builder->add('title')->add('date')->add('heurDeb' , TimeType::class,  [
+            'input'  => 'string',
+            'widget' => 'choice',
+        ])->add('heureFin',   TimeType::class,  [
+            'input'  => 'string',
+            'widget' => 'choice',
+        ])->add('description')->add( 'type' , ChoiceType::class, [
             'label' => '',
             'choices' => [
                 'Touristic Tour' => 'Touristic Tour',
@@ -34,7 +42,7 @@ class EventType extends AbstractType
 
 
             ]])
-        ->add('save', SubmitType::class);
+        ->add('save', SubmitType::class );
     }/**
      * {@inheritdoc}
      */

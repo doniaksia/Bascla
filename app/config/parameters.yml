@@ -10,4 +10,3 @@ parameters:
     mailer_password: null
     secret: ThisTokenIsNotSoSecretChangeIt
     mailer_user: donia.ksiaa@esprit.com
-    sender_name: donia

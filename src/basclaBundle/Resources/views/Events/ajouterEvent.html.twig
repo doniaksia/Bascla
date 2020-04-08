@@ -42,7 +42,15 @@
 
         <div class="wrap-contact100">
             {{ form_start(fo) }}
+            <span class="contact100-form-title" style="font-size: 15px; color: red; margin-top: 100px;">
+
+            {%  for j in app.flashes('info') %}
+                {{ j }}
+            </br>
+            {% endfor %}
+            </span>
 				<span class="contact100-form-title">
+
 					New event to add :
 				</span>
 
@@ -64,13 +72,13 @@
                 <div class="ui container" style=" margin-left: -150px;">
 
 
-                    <div class="wrap-input100" id="example2" style="margin-bottom: 25px;">
+                    <div  style="margin-bottom: 25px;">
                         {{ form_label(fo.date,"Due Date" ,  {'label_attr' : {'class' : 'label-input100'}}) }}
 
                     </br>
                         <div class="ui input left icon">
                             <i class="calendar icon"></i>
-                            {{ form_widget(fo.date, { 'attr': {'class': 'input100' , 'autocomplete' : 'off' , 'placeholder' : 'Due Date ...'} }) }}
+                            {{ form_widget(fo.date, { 'attr': {'class': 'input100' , 'id' : 'date' ,  'autocomplete' : 'off' , 'placeholder' : 'Due Date ...'} }) }}
 
                             <span class="focus-input100"></span>
                         </div>

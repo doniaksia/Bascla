@@ -26,16 +26,15 @@ class Event
 
     /**
      * @var string
-     *
      * @ORM\Column(name="title", type="string", length=100, nullable=false)
      */
     private $title;
-
     /**
-     * @var string
-     *
+     * @var string A "Y-m-d" formatted value
      * @ORM\Column(name="date", type="string", length=100, nullable=true)
+     * @Assert\Date
      */
+
     private $date;
 
     /**

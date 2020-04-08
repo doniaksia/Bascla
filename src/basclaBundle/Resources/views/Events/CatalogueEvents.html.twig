@@ -3,18 +3,25 @@
     {{ parent() }}
 
 {% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+
+{% endblock %}
 {% block content %}
     <div class="bikes">
     <div class="mountain-sec">
 
 
 
-
+<a href="{{ path('modal') }}">RENDER</a>
         <ul class="nav1" id="side-menu">
                 <ul class="nav1 nav-second-level" id="entitiesNav">
                 </ul>
         </ul><br><br><br><br>
-        <div class="container2">
+        <div class="container2" style="margin-bottom: 140px;">
             <input type="text" id="search" placeholder="Search...">
             <div class="search"></div>
         </div>
@@ -61,16 +68,91 @@
                 });
             });
         </script>
+
         <h2>Events</h2>
-        {% for i in Clubs %}
+    </br>
+
+
+
+            {% for i in Clubs %}
+
+
+             <div class="modal fade" id="myModal" role="dialog">
+                            <div class="modal-dialog">
+
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header" style="padding:35px 50px;">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4><span class="glyphicon glyphicon-lock"></span>  {{user.username}} These are some bikers</h4>
+
+                                    </div>
+                                    <div class="modal-body" style="padding:40px 50px;">
+                                    {%  for ip in pp  if ip.idEvent == i.id %}
+                                        <div class="form-group">
+                                            <label for="usrname"><span class="glyphicon glyphicon-user"></span> {{ip.nomP}}</label>
+
+                                        </div>
+
+                                        {% endfor %}
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    <script>
+                        $(document).ready(function(){
+                            $("#myBtn").click(function(){
+                                $("#myModal").modal();
+                            });
+                        });
+                    </script>
+
         <a href="single.html"><div class="bike">
-                <img src="{{ asset('uploads/images/') }}{{ i.pic}}" alt=""/>
+                <img style="height: 150px;" src="{{ asset('uploads/images/') }}{{ i.pic}}" alt=""/>
                 <div class="bike-cost">
                     <div class="bike-mdl">
                         <h4>{{i.title}}<span>{{i.date}}</span></h4>
                     </div>
                     <div class="bike-cart">
-                        <a class="buy" href="single.html">Participer</a>
+                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                         {% set V = false %}
+                         {% for j in pp if not V%}
+
+                           {% if j.idClient == user.id and j.idEvent == i.id  %}
+
+                                 {% if j.etat == 0 %}
+
+                     <a class="buy"  href=" {{ path('annuler', {'id' : user.id , 'ev': i.id }) }}" > Annuler </a>
+                    <button type="button"  id="myBtn">Login</button>
+
+
+
+                     {% else %}
+                                     <div>Une invitation a été envoyée à l'Admin</div>
+                                         <a class="buy"  href=" {{ path('annuler', {'id' : user.id , 'ev': i.id }) }}" > Annuler </a>
+                                {% endif %}
+
+                                         {% set V = true %}
+                           {% endif %}
+
+                         {% endfor %}
+                         {% if V == false %}
+                             <a class="buy" id = "myDIV"  href=" {{ path('participation', {'id' : user.id , 'ev': i.id }) }}">Participer</a>
+
+                         {% endif %}
+
+
+
+                     {% elseif is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
+
+                            <a class="buy" href="{{ path('error') }}">Participer</a>
+
+                     {% endif %}
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -84,10 +166,16 @@
         {% endfor %}
 
         <div class="clearfix"></div>
+
+
     </div>
 
 
 
 
-
+{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 {% endblock %}

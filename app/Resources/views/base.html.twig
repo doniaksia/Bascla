@@ -13,6 +13,7 @@
     <link href="{{  asset ('Front/css/bootstrap.css') }}" rel='stylesheet' >
     <!-- jQuery (Bootstrap's JavaScript plugins) -->
     <!-- Custom Theme files -->
+
     <link href="{{  asset ('Front/css/style.css') }}" rel="stylesheet"   >
     <!-- Custom Theme files -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -85,7 +86,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                         </li>
 
-                        <a class="shop" href="cart.html"><img style="width: 150%;" src="{{asset('Front/images/cart.png')  }}" alt=""/></a>
+                        <div class="header-top-right float-right" style="float:  right; margin-right: 300px; font-size: 20px;">
+                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                <a href="{{ path('fos_user_security_logout') }}" class="header-top-button" ><i class="lni-lock"></i> Log Out</a>
+                            {% elseif is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
+                                <a href="{{ path('fos_user_security_login') }}" class="header-top-button"><i class="lni-lock"></i> Log In</a> |
+                                <a href="{{ path('fos_user_registration_register') }}" class="header-top-button"><i class="lni-pencil"></i> Register</a>
+                            {% endif %}
+                        </div>
                     </ul>
                 </div>
                 <div class="clearfix"></div>

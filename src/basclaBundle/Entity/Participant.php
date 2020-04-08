@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Participant
  *
  * @ORM\Table(name="participant", indexes={@ORM\Index(name="fk_id_ev", columns={"id_client", "id_event"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass= "basclaBundle\Repository\Entity\ParticipantRepository")
  */
 class Participant
 {

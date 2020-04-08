@@ -2503,7 +2503,7 @@ input[type="button"].btn-block {
     .dropdown-menu-xxl-left {
         right: auto;
         left: 0; }
-    .dropdown-menu-xxl-right {
+    . -xxl-right {
         right: 0;
         left: auto; } }
 

@@ -40,7 +40,27 @@ detailEvent:
 ajax_search:
     path:     /search
     defaults:  { _controller: basclaBundle:Event:search }
-
+participation:
+    path:     /participation/{id}/{ev}
+    defaults:  { _controller: basclaBundle:Event:participer }
+error:
+    path:     /error
+    defaults:  { _controller: basclaBundle:Event:error }
+annuler:
+     path:     /annuler/{id}/{ev}
+     defaults:  { _controller: basclaBundle:Event:annuler }
+participationDetail:
+    path:     /participation/{id}/{ev}
+    defaults:  { _controller: basclaBundle:Event:participerDetail }
+errorDetail:
+    path:     /error
+    defaults:  { _controller: basclaBundle:Event:errorDetail }
+annulerDetail:
+    path:     /annuler/{id}/{ev}
+    defaults:  { _controller: basclaBundle:Event:annulerDetail }
+modal:
+    path:     /modal
+    defaults:  { _controller: basclaBundle:Event:modal }
 
 
 
