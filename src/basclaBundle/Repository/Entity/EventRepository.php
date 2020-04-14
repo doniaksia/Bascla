@@ -24,6 +24,21 @@ class EventRepository extends EntityRepository
             ->setParameter('str', '%'.$str.'%')
             ->getResult();
     }
+    public function fetchEvents($str){
+        $dd=f;
+
+        return $this->getEntityManager()
+            ->createQuery(
+                'SELECT p
+                FROM basclaBundle:Event p
+                WHERE p.title LIKE :str or
+                p.description LIKE :str or 
+                p.categorie
+              LIKE :str'
+            )
+            ->setParameter('str', '%'.$str.'%')
+            ->getResult();
+    }
 
 
 }

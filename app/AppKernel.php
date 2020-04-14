@@ -20,6 +20,9 @@ class AppKernel extends Kernel
             new basclaBundle\basclaBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new SBC\NotificationsBundle\NotificationsBundle(),
+            new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
+
 
 
         ];

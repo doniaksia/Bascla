@@ -3,6 +3,8 @@
 namespace basclaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * PostChallenge
@@ -44,7 +46,7 @@ class PostChallenge
 
     /**
      * @var string
-     *
+     * @Assert\Image()
      * @ORM\Column(name="image", type="string", length=50, nullable=false)
      */
     private $image;
@@ -52,14 +54,14 @@ class PostChallenge
     /**
      * @var string
      *
-     * @ORM\Column(name="map_circ", type="string", length=20, nullable=false)
+     * @ORM\Column(name="map_circ", type="string", length=20, nullable=true)
      */
     private $mapCirc;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="pic_client", type="string", length=50, nullable=false)
+     * @ORM\Column(name="pic_client", type="string", length=50, nullable=true)
      */
     private $picClient;
 

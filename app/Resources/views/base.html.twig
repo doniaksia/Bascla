@@ -55,7 +55,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span>Menu</span>
                     </label>
                     <input id="mobile_menu" type="checkbox">
-                    <ul class="nav">
+                    <ul class="nav" >
                         <li class="dropdown1" style="color: #1B242F;"><a href="{{ path('products') }}" >Products</a>
                             <ul class="dropdown2">
                                 <li><a href="bicycles.html">Buy a bike</a></li>
@@ -65,7 +65,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li class="dropdown1"><a href="404.html">Events</a>
                             <ul class="dropdown2">
                                 <li><a href="{{ path('CatalogueEvents') }}">Events</a></li>
-                                <li><a href="404.html">Weekly Challenge</a></li>
+                                <li><a href="{{ path('weeklypost') }}">Weekly Challenge</a></li>
                             </ul>
                         </li>
                         <li class="dropdown1"><a href="parts.html">After-Sales</a>
@@ -86,15 +86,46 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                         </li>
 
-                        <div class="header-top-right float-right" style="float:  right; margin-right: 300px; font-size: 20px;">
-                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                                <a href="{{ path('fos_user_security_logout') }}" class="header-top-button" ><i class="lni-lock"></i> Log Out</a>
-                            {% elseif is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
-                                <a href="{{ path('fos_user_security_login') }}" class="header-top-button"><i class="lni-lock"></i> Log In</a> |
-                                <a href="{{ path('fos_user_registration_register') }}" class="header-top-button"><i class="lni-pencil"></i> Register</a>
-                            {% endif %}
-                        </div>
+
                     </ul>
+                    {{ render(controller('basclaBundle:Event:display')) }}
+                    {{ notifications_assets() }}
+                    <script
+                            src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+                            integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+                            crossorigin="anonymous"></script>
+                    <script>
+                        /**
+                         * After calling notifications_assets() "pusher" is now available
+                         * and you can use it this way
+                         * @param data contains your data sent from server
+                         */
+
+
+                        function onNotificationsPushed (data) {
+                            console.log('data',data);
+                            data.forEach(function(item){
+                                let li= '<li>'+
+                                    '    '+item.title+' </br>'+
+                                    ' '+item.description+' \n'+
+                                    '   <a href ="'+item.fullUrl+'">see</a>'+
+                                    '</li>' ;
+
+                                $('#notification').append(li);
+                            });
+
+                        }
+
+                    </script>
+                    <div class="header-top-right float-right" style="float:  right; margin-right: 300px; font-size: 20px;">
+                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+
+                            <a style="margin-right: 450px; font-family: 'Lato Heavy';  color: #2d4373" href="{{ path('fos_user_security_logout') }}"  class="btn btn-primary dropdown-toggle"  ><i class="lni-lock"></i> Log Out</a>
+                        {% elseif is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
+                            <a href="{{ path('fos_user_security_login') }}" class="header-top-button"><i class="lni-lock"></i> Log In</a> |
+                            <a href="{{ path('fos_user_registration_register') }}" class="header-top-button"><i class="lni-pencil"></i> Register</a>
+                        {% endif %}
+                    </div>
                 </div>
                 <div class="clearfix"></div>
             </div>

@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Challenge
  *
  * @ORM\Table(name="challenge")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass= "basclaBundle\Repository\Entity\ChallengeRepository")
  */
 class Challenge
 {

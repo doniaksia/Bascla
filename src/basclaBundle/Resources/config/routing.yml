@@ -34,6 +34,10 @@ supprimerEvent:
 CatalogueEvents:
     path:     /CatalogueEvents
     defaults:  { _controller: basclaBundle:Event:CatalogueEvents }
+weeklypost :
+    path:     /weeklypost
+    defaults:  { _controller: basclaBundle:Challenge:weeklyposts }
+
 detailEvent:
     path:     /detailEvent/{id}
     defaults:  { _controller: basclaBundle:Event:detailEvent }
@@ -43,6 +47,8 @@ ajax_search:
 participation:
     path:     /participation/{id}/{ev}
     defaults:  { _controller: basclaBundle:Event:participer }
+
+
 error:
     path:     /error
     defaults:  { _controller: basclaBundle:Event:error }
@@ -61,6 +67,23 @@ annulerDetail:
 modal:
     path:     /modal
     defaults:  { _controller: basclaBundle:Event:modal }
+confirmerP :
+    path:     /Confirmer
+    defaults:  { _controller: basclaBundle:Event:confirmerPartic }
+
+ok :
+    path:     /ok/{id}
+    defaults:  { _controller: basclaBundle:Event:ok }
+
+non :
+    path:     /non/{id}
+    defaults:  { _controller: basclaBundle:Event:non }
+pdf :
+    path:     /pdf/{id}
+    defaults:  { _controller: basclaBundle:Event:pdf }
+
+
+
 
 
 

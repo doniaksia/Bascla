@@ -1,4 +1,6 @@
+
 {%  extends 'base.html.twig' %}
+
 {% block header %}
     {{ parent() }}
 
@@ -10,18 +12,143 @@
 
 
 {% endblock %}
+
 {% block content %}
+<style>
+@keyframes radious {
+  100%,
+  0% {
+    border-radius: 35% 65% 70% 30% / 30% 30% 70% 70%;
+  }
+  20% {
+    border-radius: 35% 65% 50% 50% / 35% 65% 35% 65%;
+  }
+  40% {
+    border-radius: 35% 65% 65% 35% / 65% 50% 50% 35%;
+  }
+  60% {
+    border-radius: 35% 65% 50% 50% / 30% 30% 70% 70%;
+  }
+  80% {
+    border-radius: 40% 60% 40% 60% / 40% 50% 50% 60%;
+  }
+}
+
+@keyframes blob_a {
+  100%,
+  0% {
+    transform: none;
+  }
+  50% {
+    transform: translate(50%, 20%) rotateY(10deg) scale(1.2);
+  }
+}
+
+@keyframes blob_b {
+  100%,
+  0% {
+    transform: none;
+  }
+  50% {
+    transform: translate(50%, 20%) rotate(-200deg) scale(1.2);
+  }
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.box {
+  position: relative;
+  margin: 5rem auto;
+  background-image: linear-gradient(to right, #FFE29F 0%, #FFA99F 48%, #FF719A 100%);
+  overflow: hidden;
+}
+
+.box .wave {
+  display: block;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.box img.wave[src*="top"] {
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+  top: -1px;
+}
+
+.box .inner {
+  position: relative;
+  z-index: 1;
+}
+
+.box .inner h1 {
+  font-family: 'Lobster', cursive;
+  font-size: 2.6em;
+  text-align: center;
+  color: #FFFFFF;
+  text-shadow: 1px 1px 12px rgba(0,0,0,.15);
+}
+
+.box .blob b {
+  position: absolute;
+  height: 400px;
+  width: 400px;
+  top: 50%;
+  left: 70%;
+  background-image: linear-gradient(to right, #FFE29F 0%, #FFA99F 48%, #FF719A 100%);
+  border-radius: 30% 70% 20% 40%;
+  opacity: .25;
+  animation:
+    transform 20s ease-in-out infinite both alternate,
+    blob_a 40s ease-in-out infinite both;
+}
+
+.box .blob b:first-child {
+  width: 1000px;
+  height: 1000px;
+  top: -250px;
+  left: -500px;
+  transform: rotate(-180deg);
+  animation:
+    radious 30s ease-in-out infinite both alternate,
+    blob_b 60s ease-in-out infinite both;
+}
+</style>
+<section class="box">
+
+  <img src="http://www.tobiasbogliolo.com/docs/codepen/assets/img/wave.png?top" alt="" class="wave">
+
+  <div class="inner">
+    <h1>Our events</h1>
+  </div>
+
+  <div class="blob">
+    <b></b>
+    <b></b>
+  </div>
+
+  <img src="http://www.tobiasbogliolo.com/docs/codepen/assets/img/wave.png" alt="" class="wave">
+
+</section>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+
+
     <div class="bikes">
     <div class="mountain-sec">
 
 
 
-<a href="{{ path('modal') }}">RENDER</a>
-        <ul class="nav1" id="side-menu">
+        <ul class="nav1" style="
+        bottom: 700px; left: 500px;" id="side-menu">
                 <ul class="nav1 nav-second-level" id="entitiesNav">
                 </ul>
         </ul><br><br><br><br>
-        <div class="container2" style="margin-bottom: 140px;">
+        <div style="margin-left: 300px; margin-top: 400px;" class="container2" >
             <input type="text" id="search" placeholder="Search...">
             <div class="search"></div>
         </div>
@@ -69,48 +196,16 @@
             });
         </script>
 
-        <h2>Events</h2>
-    </br>
-
+<script>
+if ( navigator.platform.indexOf('Win') != -1 ) {
+  window.document.getElementById("wrapper").setAttribute("class", "windows");
+} else if ( navigator.platform.indexOf('Mac') != -1 ) {
+  window.document.getElementById("wrapper").setAttribute("class", "mac");
+}
+</script>
 
 
             {% for i in Clubs %}
-
-
-             <div class="modal fade" id="myModal" role="dialog">
-                            <div class="modal-dialog">
-
-                                <!-- Modal content-->
-                                <div class="modal-content">
-                                    <div class="modal-header" style="padding:35px 50px;">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4><span class="glyphicon glyphicon-lock"></span>  {{user.username}} These are some bikers</h4>
-
-                                    </div>
-                                    <div class="modal-body" style="padding:40px 50px;">
-                                    {%  for ip in pp  if ip.idEvent == i.id %}
-                                        <div class="form-group">
-                                            <label for="usrname"><span class="glyphicon glyphicon-user"></span> {{ip.nomP}}</label>
-
-                                        </div>
-
-                                        {% endfor %}
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                    <script>
-                        $(document).ready(function(){
-                            $("#myBtn").click(function(){
-                                $("#myModal").modal();
-                            });
-                        });
-                    </script>
 
         <a href="single.html"><div class="bike">
                 <img style="height: 150px;" src="{{ asset('uploads/images/') }}{{ i.pic}}" alt=""/>
@@ -125,12 +220,38 @@
 
                            {% if j.idClient == user.id and j.idEvent == i.id  %}
 
-                                 {% if j.etat == 0 %}
+                                 {% if j.etat == 1 %}
 
                      <a class="buy"  href=" {{ path('annuler', {'id' : user.id , 'ev': i.id }) }}" > Annuler </a>
-                    <button type="button"  id="myBtn">Login</button>
 
+<button type="button"  data-toggle="modal" data-target="#exampleModal">
+participant</button>
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div >
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Participant for this event</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          {%   for ip in pp  if ip.idEvent == i.id %}
+                                        <div class="form-group">
+                                            <label for="usrname" style="font-size: 20px; font-family: 'Lato Heavy'; color: #0b3564;"><span class="glyphicon glyphicon-user"></span> {{ip.nomP}}</label>
+
+                                        </div>
+
+                                        {% endfor %}
+                          </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
                      {% else %}
                                      <div>Une invitation a été envoyée à l'Admin</div>
@@ -150,7 +271,7 @@
 
                      {% elseif is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
 
-                            <a class="buy" href="{{ path('error') }}">Participer</a>
+                            <a class="buy" href="{{ path("fos_user_security_login") }}">Participer</a>
 
                      {% endif %}
                     </div>
@@ -176,6 +297,7 @@
 {% endblock %}
 {% block javascripts %}
 {{ parent() }}
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 {% endblock %}

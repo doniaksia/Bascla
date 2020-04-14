@@ -22,6 +22,10 @@ class securityController extends Controller
        }
        else if($auto->isGranted('ROLE_USER'))
        {return $this->render('@bascla/Default/indexAdmin.html.twig');}
+       else if (IS_AUTHENTICATED_REMEMBERED)
+       {
+           return $this->render('@bascla/Default/indexAdmin.html.twig') ;
+       }
        else
        {
            return$this->render('@FOSUser/Security/login.html.twig');

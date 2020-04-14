@@ -10,17 +10,15 @@ label.mobile_menu span {
 	  
 }
 .navigation{
-	float:left;
 	margin-top: -0.8em;
 }
 .nav {
 	/* General Font */
-	
+	float: right;
+	position: center;
 	/* General Shape */
-	position: relative;
 
-	margin-left: 300px;
-	margin-bottom: 30px;
+
 }
 ul.nav{
 	padding:0;

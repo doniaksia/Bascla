@@ -3,6 +3,7 @@
 namespace basclaBundle\Controller;
 
 use basclaBundle\Entity\Event;
+use basclaBundle\Entity\Notification;
 use basclaBundle\Entity\Participant;
 use basclaBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -54,6 +55,42 @@ class EventController extends Controller
         );
         return $this->render('@bascla/Events/afficherEvent.html.twig' , array('Clubs' => $pagination));
     }
+    public function confirmerParticAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $dql   = "SELECT a FROM basclaBundle:Participant a";
+        $query = $em->createQuery($dql);/**
+         * @ var $paginator  \Knp\Component\Pager\Paginator
+         */
+
+        $paginator = $this->get('knp_paginator');
+
+        $pagination = $paginator->paginate(
+            $query,
+            $request->query->getInt('page', 1), /*page number*/
+            $request->query->getInt('limit', 5) /*page number*/
+        );
+        return $this->render('@bascla/Events/comfirmerPartic.html.twig' , array('Clubs' => $pagination));
+    }
+public function okAction($id)
+{
+    $em  = $this->getDoctrine()->getManager();
+    $club = $em->getRepository(Participant::class)->find($id);
+    $club->setEtat(1);
+
+    $em->flush();
+    return $this->redirectToRoute('confirmerP');
+
+}
+    public function nonAction($id)
+    {
+        $em = $this ->getDoctrine()->getManager();
+        $club = $em ->getRepository(Participant::class)->find($id);
+        $em ->remove($club);
+        $em->flush();
+
+        return $this->redirectToRoute('confirmerP');
+    }
 
     public function searchAction(Request $request)
     {
@@ -67,12 +104,42 @@ class EventController extends Controller
         }
         return new Response(json_encode($result));
     }
+    public function pdfAction($id)
+    {
+        $em  = $this->getDoctrine()->getManager();
+        $club = $em->getRepository(Event::class)->find($id);
+        $em  = $this->getDoctrine()->getManager();
+        $clubs = $em->getRepository(Participant::class)->findAll();
+        $snappy = $this->get('knp_snappy.pdf');
+
+        $html = $this->renderView('@bascla/Events/pdf.html.twig', array(
+            'club' => $club , 'clubs' => $clubs
+        ));
+
+        $filename = 'myFirstSnappyPDF';
+
+        return new Response(
+            $snappy->getOutputFromHtml($html),
+            200,
+            array(
+                'Content-Type'          => 'application/pdf',
+                'Content-Disposition'   => 'inline; filename="'.$filename.'.pdf"'
+            )
+        );
+    }
+
     public function getRealEntities($posts){
         foreach ($posts as $posts){
             $realEntities[$posts->getId()] = [$posts->getTitle(),$posts->getDate()];
 
         }
         return $realEntities;
+    }
+    public function displayAction()
+    {
+        $notification = $this->getDoctrine()->getManager()->getRepository(Notification::class)->findbydate();
+
+        return $this->render('@bascla/Events/notification.html.twig',array('notifications' => $notification));
     }
     public function detailEventAction($id)
     {
@@ -133,7 +200,20 @@ class EventController extends Controller
             $em  = $this->getDoctrine()->getManager();
             $em->persist($club);
             $em->flush();
-            return $this->redirectToRoute('homeAdmin');}}
+            $notification = new Notification();
+            $notification
+                ->setTitle($club->getTitle())
+                ->setDescription("An event is available : ".$club->getDescription())
+                ->setRoute("detailEvent")
+                ->setParameters(array('id' => $club->getId()));
+            $em->persist($notification);
+            $em->flush();
+            $pusher = $this->get('mrad.pusher.notificaitons');
+            $pusher->trigger($notification);
+
+
+
+                return $this->redirectToRoute('homeAdmin');}}
             else
             {
 if (!$D)
@@ -189,8 +269,14 @@ if (!$HDEB)
 
     public function supprimerEventAction($id){
         $em = $this ->getDoctrine()->getManager();
+        $emm = $this ->getDoctrine()->getManager();
+
         $club = $em ->getRepository(Event :: class)->find($id);
+        $part = $emm ->getRepository( Notification :: class)->deletenotif($club->getTitle());
+
         $em ->remove($club);
+        $emm ->remove($part);
+
         $em->flush();
 
         return $this->redirectToRoute('afficherEvent');
@@ -229,8 +315,22 @@ if (!$HDEB)
        $em ->persist($par);
 
            $em->flush();
+        $now = new \DateTime('now');
 
+        $date = new \DateTime($event->getDate());
+        $notification = new Notification();
+        $notification
+            ->setTitle($event->getTitle())
+            ->setDescription("Are you ready for  ".$event->getDescription())
+            ->setRoute("detailEvent")
+            ->setParameters(array('id' => $event->getId()))
+            ->setDate($date)
+            ->setIcon("partic");
 
+        $em->persist($notification);
+        $em->flush();
+        $pusher = $this->get('mrad.pusher.notificaitons');
+        $pusher->trigger($notification);
 
 
         return $this->redirectToRoute('CatalogueEvents');

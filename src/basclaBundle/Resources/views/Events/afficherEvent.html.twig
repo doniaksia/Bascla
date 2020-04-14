@@ -21,7 +21,7 @@
 
 {% block content %}
 fghjklmù
-    <div class="limiter">
+    <div style="margin-left: 200px;" class="limiter">
     <div class="container-table100">
     <div class="wrap-table100">
     <div class="table100 ver1 m-b-110">
@@ -38,6 +38,7 @@ fghjklmù
                     <th class="cell100 column7">Capacity</th>
                     <th class="cell100 column8">Modify</th>
                     <th class="cell100 column9">Delete</th>
+                    <th class="cell100 column9">PDF SECTION</th>
 
 
                 </tr>
@@ -59,6 +60,8 @@ fghjklmù
                     <td class="cell100 column7">{{i.capacite}}</td>
                     <td class="cell100 column8"><a href="{{  path ('modifierEvent' , {'id' : i.id}) }}">Modify</a></td>
                     <td class="cell100 column9"><a href="{{  path ('supprimerEvent' , {'id' : i.id}) }}">Delete</a></td>
+                    <td class="cell100 column9"><a href="{{  path ('pdf' , {'id' : i.id}) }}">Get your PDF now</a></td>
+
 
                 </tr>
 
@@ -74,6 +77,7 @@ fghjklmù
     </div>
     </div>
     </div>
+
 
 
 
