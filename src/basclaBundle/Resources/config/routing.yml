@@ -47,11 +47,16 @@ ajax_search:
 participation:
     path:     /participation/{id}/{ev}
     defaults:  { _controller: basclaBundle:Event:participer }
-
+like:
+    path:     /like/{id}
+    defaults:  { _controller: basclaBundle:Challenge:like }
 
 error:
     path:     /error
     defaults:  { _controller: basclaBundle:Event:error }
+desc:
+    path:     /desc/{id}
+    defaults:  { _controller: basclaBundle:Event:desc }
 annuler:
      path:     /annuler/{id}/{ev}
      defaults:  { _controller: basclaBundle:Event:annuler }

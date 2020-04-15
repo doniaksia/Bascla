@@ -10,7 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * PostChallenge
  *
  * @ORM\Table(name="post_challenge")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass= "basclaBundle\Repository\Entity\PostChallengeRepository")
  */
 class PostChallenge
 {
@@ -19,7 +19,7 @@ class PostChallenge
      *
      * @ORM\Column(name="id_pc", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $idPc;
 

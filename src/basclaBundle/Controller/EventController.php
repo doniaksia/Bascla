@@ -76,9 +76,25 @@ public function okAction($id)
 {
     $em  = $this->getDoctrine()->getManager();
     $club = $em->getRepository(Participant::class)->find($id);
+    $event = $em->getRepository(Event::class)->find($club->getIdEvent());
     $club->setEtat(1);
 
     $em->flush();
+    $date = new \DateTime('now +1');
+
+    $notification = new Notification();
+    $notification
+        ->setTitle($event->getTitle())
+        ->setDescription("Congrats !! Are you ready for  ".$event->getDescription())
+        ->setRoute("detailEvent")
+        ->setParameters(array('id' => $event->getId()))
+        ->setDate($date)
+        ->setIcon("partic");
+
+    $em->persist($notification);
+    $em->flush();
+    $pusher = $this->get('mrad.pusher.notificaitons');
+    $pusher->trigger($notification);
     return $this->redirectToRoute('confirmerP');
 
 }
@@ -229,6 +245,14 @@ if (!$HDEB)
         }
         return $this->render( '@bascla/Events/ajouterEvent.html.twig', array('fo' => $form ->createView()));
     }
+    public function descAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $club = $em->getRepository(Event::class)->find($id);
+
+        return $this->render( '@bascla/Events/test.html.twig', array('club' => $club ));
+
+    }
 
     public function modifierEventAction(Request $request, $id)
     {
@@ -315,22 +339,9 @@ if (!$HDEB)
        $em ->persist($par);
 
            $em->flush();
-        $now = new \DateTime('now');
 
         $date = new \DateTime($event->getDate());
-        $notification = new Notification();
-        $notification
-            ->setTitle($event->getTitle())
-            ->setDescription("Are you ready for  ".$event->getDescription())
-            ->setRoute("detailEvent")
-            ->setParameters(array('id' => $event->getId()))
-            ->setDate($date)
-            ->setIcon("partic");
 
-        $em->persist($notification);
-        $em->flush();
-        $pusher = $this->get('mrad.pusher.notificaitons');
-        $pusher->trigger($notification);
 
 
         return $this->redirectToRoute('CatalogueEvents');

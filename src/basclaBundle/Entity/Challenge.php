@@ -17,7 +17,7 @@ class Challenge
      *
      * @ORM\Column(name="id_ch", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $idCh;
 

@@ -23,21 +23,33 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ChallengeController extends Controller
 {
+public function likeAction($id)
+{
 
+   $this ->getDoctrine()->getRepository(PostChallenge :: class)->likeme($id);
+
+    return $this->redirectToRoute('weeklypost');
+}
 
     public function weeklypostsAction(\Symfony\Component\HttpFoundation\Request $request)
     {
         $Clubs = $this ->getDoctrine()->getRepository(Challenge :: class)->weeklypost();
         $pp = $this ->getDoctrine()->getRepository(PostChallenge :: class)->findAll();
+        $c = $this ->getDoctrine()->getRepository(PostChallenge :: class)->count();
 
         $user = $this->getUser();
         $club = new PostChallenge();
         $form = $this -> createForm( PostChallengeType::class, $club);
-
+        $club->setIdClient($user->getId());
+        $club->setIdCh($Clubs->getIdCh());
+        $desc = $request->request->get('desc');
+        $club->setDescPc($desc);
+        $club->setNmbReaction(0);
+        $club->setNomClient($user->getUsername());
         $form =  $form ->handleRequest($request);
-
-        if ($form->isSubmitted()    )
-        {
+     if ($form->isSubmitted())
+     {   if ( $c <= $Clubs->getNbrMaxPub())
+       {
             $brochureFile = $form->get('image')->getData();
 
             // this condition is needed because the 'brochure' field is not required
@@ -62,10 +74,8 @@ class ChallengeController extends Controller
                 $em->flush();
                 $notification = new Notification();
                 $notification
-                    ->setTitle("A post is available go vote : ".$club->getTitle())
-                    ->setDescription($club->getDescription())
-                    ->setRoute("detailEvent")
-                    ->setParameters(array('id' => $club->getId()));
+                    ->setTitle("A post is available go vote : ".$club->getNomClient())
+                    ->setDescription("nombre de reaction actuel : ".$club->getNmbReaction());
                 $em->persist($notification);
                 $em->flush();
                 $pusher = $this->get('mrad.pusher.notificaitons');
@@ -74,6 +84,11 @@ class ChallengeController extends Controller
 
 
                 return $this->redirectToRoute('weeklypost');}}
+     else {
+
+           $this->addFlash('warning', 'The maximum number of posts has been reached');}}
+
+
 
 
 

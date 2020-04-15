@@ -33,9 +33,6 @@ fghjklmù
                     <th class="cell100 column2">Description</th>
                     <th class="cell100 column3">Due Date</th>
                     <th class="cell100 column4">Debut hour</th>
-                    <th class="cell100 column5">Final Hour</th>
-                    <th class="cell100 column6">Type</th>
-                    <th class="cell100 column7">Capacity</th>
                     <th class="cell100 column8">Modify</th>
                     <th class="cell100 column9">Delete</th>
                     <th class="cell100 column9">PDF SECTION</th>
@@ -52,15 +49,12 @@ fghjklmù
                 <tbody>
                 <tr class="row100 body">
                     <td class="cell100 column1">{{ i.title }}</td>
-                    <td class="cell100 column2">{{i.description  }}</td>
-                    <td class="cell100 column3">{{i.date}}</td>
+                    <td class="cell100 column2"><button class="btn btn-outline-primary"><a href="{{  path ('desc' , {'id' : i.id}) }}"></a></button></td>
+                    <td class="cell100 column3" style="margin-left: 50px;" >{{i.date}}</td>
                     <td class="cell100 column4">{{ i.heurDeb }}</td>
-                    <td class="cell100 column5">{{i.heureFin}}</td>
-                    <td class="cell100 column6">{{i.type}}</td>
-                    <td class="cell100 column7">{{i.capacite}}</td>
-                    <td class="cell100 column8"><a href="{{  path ('modifierEvent' , {'id' : i.id}) }}">Modify</a></td>
-                    <td class="cell100 column9"><a href="{{  path ('supprimerEvent' , {'id' : i.id}) }}">Delete</a></td>
-                    <td class="cell100 column9"><a href="{{  path ('pdf' , {'id' : i.id}) }}">Get your PDF now</a></td>
+                    <td class="cell100 column8"><button class="btn btn-outline-primary"><a href="{{  path ('modifierEvent' , {'id' : i.id}) }}">Modify</a></button></td>
+                    <td class="cell100 column9"><button class="btn btn-outline-primary"><a href="{{  path ('supprimerEvent' , {'id' : i.id}) }}">Delete</a></button></td>
+                    <td class="cell100 column9"><button class="btn btn-outline-primary"><a href="{{  path ('pdf' , {'id' : i.id}) }}">Get your PDF now</a></button></td>
 
 
                 </tr>

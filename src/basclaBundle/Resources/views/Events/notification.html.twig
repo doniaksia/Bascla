@@ -1,35 +1,50 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      xmlns:list-style-type="http://www.w3.org/1999/xhtml" xmlns:list-style-type="http://www.w3.org/1999/xhtml">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
-<div class="container">
-    <div class="dropdown">
-        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-Notification
-        </button>
-        <div class="dropdown-menu">
+
 
 <ul id="notification">
     {% for i in notifications %}
-       {% if ( i.icon is empty  or (i.icon == "partic" and i.date == date())) %}
-<li style="font-family: 'Lato Heavy'; font-size: 20px;" class="dropdown-item">
-        <ul style="color: #2d4373;">
+       {% if ( i.icon is empty  ) %}
+<li  style="font-family: 'Lato Heavy'; list-style:none;
+ font-size: 20px;" class="dropdown-item">
+        <ul style="color: #2d4373; list-style:none;
+">
             {{ i.title }} </br>
         </ul>
         <ul>
             {{ i.description }}
         </ul>
-   <a href = {{ path(i.route, i.parameters) }}>see</a>
-</li>
-        {% else %}
-      <li>liste vide</li>
-       {% endif %}
+        {% if ( i.route is  not empty  ) %}
 
+            <a href = {{ path(i.route, i.parameters) }}>see</a>
+{% else %}
+
+        {% endif %}
+</li>
+
+       {% elseif (i.icon == "partic" ) %}
+            <li  style="font-family: 'Lato Heavy'; list-style:none;
+ font-size: 20px;" class="dropdown-item">
+                <ul style="color: #2d4373; list-style:none;
+">
+                    {{ i.title }} </br>
+                </ul>
+                <ul>
+                    {{ i.description }}
+                </ul>
+                {% if ( i.route is  not empty  ) %}
+
+                    <a href = {{ path(i.route, i.parameters) }}>see</a>
+                {% else %}
+
+                {% endif %}
+            </li>
+        {% endif %}
     {% endfor %}
 
 </ul>
-        </div>
-    </div>
-</div>
 
