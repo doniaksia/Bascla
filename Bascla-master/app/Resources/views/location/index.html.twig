@@ -1,0 +1,56 @@
+{%  extends 'base2.html.twig' %}
+{% block header %}
+    {{ parent() }}
+
+{% endblock %}
+{% block content %}
+<center>
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <center>L <h3 >Location List</h3></center>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive ">
+                    <table class="table header-border table-responsive-sm text-muted">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Datedebut</th>
+            <th>Datefin</th>
+            <th>ID velolouer</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for location in locations %}
+            <tr>
+                <td>{{ location.id }}</td>
+                <td>{% if location.dateDebut %}{{ location.dateDebut|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if location.dateFin %}{{ location.dateFin|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if location.idlocation %}{{ location.idlocation }}{% endif %}</td>
+                <td>
+                    <ul>
+
+                        <li>
+
+                            <a href="{{ path('location_edit', { 'id': location.id },{ 'idlocation': location.idlocation }) }}"class="btn btn-outline-success">edit</a>
+
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+
+    </table>
+    <br>
+
+
+    <center>    <a class="btn btn-primary" href="{{ asset("calander.php")}}"  >calendrier </a></center>
+
+</center>
+
+{% endblock %}
+

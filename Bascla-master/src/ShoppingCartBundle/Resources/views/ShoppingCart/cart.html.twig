@@ -1,0 +1,96 @@
+{%  extends 'base.html.twig' %}
+{% block header %}
+    {{ parent() }}
+
+{% endblock %}
+{% block content %}
+    <div class="product" xmlns="http://www.w3.org/1999/html">
+        <div class="container">
+            <div class="ctnt-bar cntnt">
+                <div class="content-bar">
+                    <tr class="single-page">
+                        <div class="product-head">
+                            <a href="index.html" size="30">Products</a> <span>::</span>
+                        </div>
+
+                        <!--//details-product-slider-->
+
+                        <div class="details-left-slider">
+                            <div class="grid images_3_of_2">
+                                <div class="flexslider">
+                                    <!-- FlexSlider -->
+                                    <script src="js/imagezoom.js"></script>
+                                    <script defer src="js/jquery.flexslider.js"></script>
+                                    <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+
+                                    <script>
+                                        // Can also be used with $(document).ready()
+                                        $(window).load(function() {
+                                            $('.flexslider').flexslider({
+                                                animation: "slide",
+                                                controlNav: "thumbnails"
+                                            });
+                                        });
+                                    </script>
+
+
+
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="details-left-info">
+
+
+
+
+                            <table width="100%">
+                                <thead>
+                                <tr>
+                                    <th height="80px">Marque</th>
+                                    <th height="80px">Price</th>
+                                    <th height="80px"></th>
+
+
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    {%  for i in produit  %}
+
+                                    <td height="80px">{{ i.marque}}</td>
+                                    <td height="80px">{{ i.price }}</td>
+                                    <td height="80px"><a class="button1" href="{{ path('add1') }}" ><span>Add to cart</span></a></td>
+
+
+
+
+                                </tr>
+
+
+
+                            {% endfor %}
+                                </tbody>
+                            </table>
+
+                        <div class="clearfix"></div>
+
+                        </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

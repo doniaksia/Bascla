@@ -1,0 +1,15 @@
+{% extends "base2.html.twig" %}
+
+{% block content %}
+    <br>
+    <br>
+    <br>
+    <center>
+        <img  src="{{ asset('uploads/web/' ~ logo) }}" height="142" width="142">
+        <h1>Our Website:  {{ website }}</h1>
+        <h1>Association Name:  {{ name }} </h1>
+        <h1>What do we do:  {{ description }} </h1>
+        <h2>Where we are:  {{ location }}</h2>
+
+    </center>
+{% endblock %}

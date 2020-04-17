@@ -1,0 +1,15 @@
+<h1 style="font-family: 'Lato Light'; font-size: 50px; color: #0b3564; margin-left: 300px;">{{ club.title}}</h1>
+<p>Illustration : </p><br>
+<img style="height: 150px;" src="{{ asset('uploads/images/') }}{{ club.pic}}" alt=""/>
+<img height="200" src="{{asset('Back/images/1.jpg')}}"/>
+
+<h2 style="color: #0b3564; margin-left: 300px;">Participants to this event</h2>
+{% for i in clubs if i.idEvent == club.id%}
+
+<div style="font-size: larger ; margin-left: 150px; font-family: Vollkorn;">
+  *  {{ i.nomp }}
+    <div class="clearfix"></div>
+
+</div>
+{% endfor %}
+

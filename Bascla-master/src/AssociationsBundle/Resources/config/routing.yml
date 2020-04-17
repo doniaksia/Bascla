@@ -1,0 +1,31 @@
+associations_homepage:
+    path:     /
+    defaults: { _controller: AssociationsBundle:Default:index }
+
+associations_ajouterAssociation:
+    path:     /ajouterAssociation
+    defaults: { _controller: AssociationsBundle:Association:ajouterAssociation }
+
+associations_afficherAssociation:
+    path:     /afficherAssociation
+    defaults: { _controller: AssociationsBundle:Association:afficherAssociation }
+
+associations_modifierAssociation:
+    path:     /modifierAssociation/{id}
+    defaults: { _controller: AssociationsBundle:Association:modifierAssociation }
+
+associations_supprimerAssociation:
+    path:     /supprimerAssociation/{id}
+    defaults: { _controller: AssociationsBundle:Association:supprimerAssociation }
+
+associations_afficherAssociationClient:
+    path:     /afficherAssociationClient
+    defaults: { _controller: AssociationsBundle:Association:afficherAssociationClient }
+
+associations_showDetails:
+    path:     /showDetails/{id}
+    defaults: { _controller: AssociationsBundle:Association:showDetails }
+
+associations_showDetailsAdmin:
+    path:     /showDetailsAdmin/{id}
+    defaults: { _controller: AssociationsBundle:Association:showDetailsAdmin }

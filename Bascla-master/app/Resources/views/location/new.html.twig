@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+{% block header %}
+    {{ parent() }}
+
+{% endblock %}
+{% block content %}
+
+
+
+
+    <center>
+    <h1> Reservation</h1>
+    {{ form_start(form) }}
+
+    {{ form_widget(form.idlocation, {'value' :id}) }}
+
+
+    {{ form_widget(form) }}
+
+
+        <ul>
+            <li>
+                <a href="{{ path('location_index') }}"></a>
+            </li>
+        </ul>
+
+    <a href="javascript:;" onclick="parentNode.submit(); " class="morebtn"  formnovalidate>reserver</a>
+
+    {{ form_end(form) }}
+</center>
+    <ul>
+        <li>
+            <a href="{{ path('location_index') }}"></a>
+        </li>
+    </ul>
+
+
+
+
+
+
+
+
+{% endblock %}
+
+{% block footer %}
+    {{ parent() }}
+{% endblock %}

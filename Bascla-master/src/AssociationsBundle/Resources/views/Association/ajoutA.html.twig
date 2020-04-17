@@ -1,0 +1,16 @@
+{% extends "base2.html.twig" %}
+
+{% block content %}
+    <br>
+    <br>
+    <br>
+  <center>  <h2>Add Association</h2></center>
+    <center>
+
+    {% form_theme form 'bootstrap_4_horizontal_layout.html.twig' %}
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+            <button class="btn btn-primary" type="submit" formnovalidate>Add Association</button>
+    {{ form_end (form) }}
+    </center>
+{% endblock %}

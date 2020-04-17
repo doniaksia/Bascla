@@ -1,0 +1,104 @@
+{%  extends 'base.html.twig' %}
+
+{% block content %}
+
+    <section id="basic-form-layouts">
+        <div class="row">
+            <div class="col-md-12">
+                <form action="add_order" method="get">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title" id="bordered-layout-basic-form">Please fill in the form bellow to confirm your order!</h4>
+                            <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+                            <div class="heading-elements">
+                                <ul class="list-inline mb-0">
+                                    <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                                    <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                                    <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                                    <li><a data-action="close"><i class="ft-x"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-content collpase show">
+                            <div class="card-body">
+                                <div class="card-text">
+                                    <p></p>
+                                </div>
+
+                                <div class="form-body">
+                                    <h4 class="form-section"><i class="ft-clipboard"></i> </h4>
+
+                                    <div class="form-group row">
+                                        <label class="col-md-3 label-control" for="projectinput1">Last Name</label>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+
+                                                    <input type='text' class="form-control datetime required" id="eventDate" name="nom" />
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-md-3 label-control" for="projectinput1">Name</label>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <fieldset class="form-group">
+
+                                                    <input type='text' class="form-control datetime required" id="eventDate" name="pnom" />
+
+
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-md-3 label-control" for="projectinput1">e-mail</label>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <fieldset class="form-group">
+
+                                                    <input type='text' class="form-control email-checkbox" id="e-mail" name="mail" />
+
+
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-md-3 label-control" for="projectinput1">Number</label>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <fieldset class="form-group">
+
+                                                    <input type='number'  id="e-mail" name="num" />
+
+
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fa fa-check-square-o"></i> Order
+                                </button>
+                                <a class="btn btn-primary" href="{{ path('show2') }}" ><span>Cancel</span></a>
+
+
+
+
+
+                            </div>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}

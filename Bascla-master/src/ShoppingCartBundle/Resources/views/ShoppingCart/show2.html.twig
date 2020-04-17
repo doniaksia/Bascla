@@ -1,0 +1,43 @@
+{%  extends 'base.html.twig' %}
+{% block header %}
+    {{ parent() }}
+
+{% endblock %}
+{% block content %}
+<h1>Your Shopping Cart : </h1>
+    <table>
+        <tr>
+            <th height="50px"></th>
+        </tr>
+    </table>
+
+<table border="1" width="50%" align="center" >
+    <tr>
+        <th height="40px">Marque :</th>
+        <th height="40px">Prix: </th>
+        <th height="40px">Amount: </th>
+
+    </tr>
+    {% for i in sh %}
+    <tr>
+        <td height="40px">{{ i.ideProduit.marque }}</td>
+        <td height="40px">{{ i.ideProduit.price }}</td>
+        <td height="40px">{{ i.ammount}}</td>
+
+
+        <td height="10px" width="10%"><a class="button1" href="{{ path('delete',{'id':i.idPanier}) }}"><span>delete</span></a></td>
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+    <table align="center">
+        <tr>
+            <th height="100px"></th>
+           <td align="center"><a class="button1" href="{{ path('ajouter_order') }}" ><span>Order Now</span></a></td>
+        </tr>
+    </table>
+
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base2.html.twig' %}
+{% block header %}
+    {{ parent() }}
+
+{% endblock %}
+{% block content %}
+
+    <center><h1> Ajouter</h1></center>
+
+    <center>
+
+        <br>
+        <h4 class="card-title">
+            {% form_theme form 'bootstrap_4_horizontal_layout.html.twig' %}
+
+
+            {{ form_start(form) }}
+
+            {{ form_widget(form) }}
+
+
+            <button class="btn btn-primary" type="submit" formnovalidate>create</button>
+            {{ form_end(form) }}
+
+        </h4>
+    </center>
+
+
+{% endblock %}
+{% block footer %}
+    {{ parent() }}
+{% endblock %}

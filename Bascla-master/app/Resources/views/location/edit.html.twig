@@ -1,0 +1,28 @@
+{% extends 'base2.html.twig' %}
+
+{% block content %}
+<h4 class="card-title">
+
+    <center>
+    {% form_theme edit_form 'bootstrap_4_horizontal_layout.html.twig' %}
+
+    <center><h1>Location edit</h1></center>
+
+    {{ form_start(edit_form) }}
+    {{ form_widget(edit_form) }}
+
+    <center><button class="btn btn-primary" type="submit">Edit</button></center>
+    {{ form_end(edit_form) }}
+    <br>
+    <ul>
+
+        {{ form_start(delete_form) }}
+        <center>    <button class="btn btn-primary" type="submit"  >Supprimer  </button></center>
+        {{ form_end(delete_form) }}
+        </li>
+    </ul>
+    <br>
+
+</h4>
+    </center>
+{% endblock %}

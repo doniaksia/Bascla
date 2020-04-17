@@ -1,0 +1,30 @@
+{%  extends 'base2.html.twig' %}
+
+{% block content %}
+
+    <table>
+        <tr>
+            <th height="50px"></th>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <th height="50px"></th>
+        </tr>
+    </table>
+    <h1 align="center">All Orders : </h1>
+<table border="1" align="center" width="80%"  >
+    <tr >
+        <th height="30px">Name :</th>
+        <th height="30px">Last Name: </th>
+        <th height="30px">Email: </th>
+    </tr>
+    {% for i in a %}
+    <tr>
+        <td height="30px">{{ i.Name }}</td>
+        <td height="30px">{{ i.Last_Name }}</td>
+        <td height="30px">{{ i.Email }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

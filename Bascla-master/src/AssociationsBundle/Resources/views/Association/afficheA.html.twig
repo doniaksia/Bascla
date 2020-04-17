@@ -1,0 +1,39 @@
+{% extends "base2.html.twig" %}
+{% block content %}
+
+<br>
+    <br>
+    <br>
+    <br>
+    <h2> <center> List of associations </center></h2>
+    <style>div.card {
+            display: inline-block;
+            width:300px;
+        }</style>
+
+
+  <center>
+    {% for e in association %}
+        <div class="card" align="center">
+
+            <div class="image">
+                <img  src="{{ asset('images/' ~ e.logo) }}" height="142" width="142">
+            </div>
+            <div class="title">
+                <h1>{{ e.Name }}</h1>
+                {{ e.Description }}
+            </div>
+            <div class="des">
+                <a href="{{ path('associations_modifierAssociation',{'id': e.id}) }}"><button type="button" class="btn btn-sm btn-outline-info">Update</button></a>
+                <a href="{{ path('associations_supprimerAssociation',{'id': e.id}) }}"><button type="button" class="btn btn-sm btn-outline-danger">Delete</button></a>
+                <a href="{{ path('associations_showDetailsAdmin',{'id': e.id}) }}">  <button type="button" class="btn btn-sm btn-outline-info">More</button></a>
+
+            </div>
+        </div>
+
+
+    {% endfor %}
+
+  </center>
+
+{% endblock %}

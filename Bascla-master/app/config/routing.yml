@@ -1,0 +1,27 @@
+bascla:
+    resource: "@basclaBundle/Resources/config/routing.yml"
+    prefix:   /bascla
+basclaD:
+    resource: "@basclaDBundle/Resources/config/routing.yml"
+    prefix:   /basclaD
+
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+
+
+shopping_cart:
+    resource: "@ShoppingCartBundle/Resources/config/routing.yml"
+    prefix:   /cart
+
+
+associations:
+    resource: "@AssociationsBundle/Resources/config/routing.yml"
+    prefix:   /
+
+
+

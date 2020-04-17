@@ -1,0 +1,27 @@
+
+{%  extends 'base2.html.twig' %}
+{% block header %}
+    {{ parent() }}
+
+{% endblock %}
+
+{% block content %}
+
+<html> <head></head> <body><center> <div id="div_chart"></div>
+
+<script type="text/javascript"
+        src="https://www.gstatic.com/charts/loader.js">
+
+</script> <script type="text/javascript">
+    {{ gc_draw(piechart, 'div_chart')  }}
+
+
+</script>
+</center>
+</body>
+</html>
+
+{% endblock %}
+{% block footer %}
+    {{ parent() }}
+{% endblock %}

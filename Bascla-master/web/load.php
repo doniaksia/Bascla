@@ -1,0 +1,28 @@
+<?php
+
+
+//load.php
+
+$connect = new PDO('mysql:host=localhost;dbname=baskla', 'root', '');
+
+$data = array();
+
+$query = "SELECT * FROM location ORDER BY id";
+
+$statement = $connect->prepare($query);
+
+$statement->execute();
+
+$result = $statement->fetchAll();
+
+foreach ($result as $row) {
+    $data[] = array(
+        'id' => $row["id"],
+        'title' => "reserver veleo numero"."   ".$row["id"],
+        'start' => $row["date_debut"],
+        'end' => $row["date_fin"]
+    );
+}
+
+echo json_encode($data);
+

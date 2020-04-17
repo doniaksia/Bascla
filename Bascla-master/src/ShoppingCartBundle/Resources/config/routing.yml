@@ -1,0 +1,36 @@
+shopping_cart_homepage:
+    path:     /
+    defaults: { _controller: ShoppingCartBundle:Default:index }
+shopping_cart_show:
+    path:     /show
+    defaults: { _controller: ShoppingCartBundle:ShoppingCart:affich }
+shopping_cart_add:
+    path:     /add
+    defaults: { _controller: ShoppingCartBundle:ShoppingCart:add }
+order_show:
+    path:     /order
+    defaults: { _controller: ShoppingCartBundle:Order:trah }
+bill_show:
+    path:     /bill
+    defaults: { _controller: ShoppingCartBundle:Bill:afficher }
+bill_add:
+    path:     /addbill
+    defaults: { _controller: ShoppingCartBundle:Bill:add }
+add1:
+    path:     /add1
+    defaults: { _controller: ShoppingCartBundle:ShoppingCart:create}
+show2:
+    path:     /show2
+    defaults: { _controller: ShoppingCartBundle:ShoppingCart:Affich2}
+delete:
+    path:     /delete/{id}
+    defaults: { _controller: ShoppingCartBundle:ShoppingCart:delete}
+ajouter_order:
+    path:     /ajout
+    defaults: { _controller: ShoppingCartBundle:Order:ajouter}
+
+add_order:
+    path:     /add_order
+    defaults: { _controller: ShoppingCartBundle:Order:add_order}
+
+

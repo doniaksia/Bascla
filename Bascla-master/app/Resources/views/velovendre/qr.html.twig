@@ -1,0 +1,21 @@
+
+{%  extends 'base.html.twig' %}
+{% block header %}
+    {{ parent() }}
+
+{% endblock %}
+
+{% block content %}
+
+
+<center>
+
+   <h2 style="color:#228B22		">Success</h2>
+
+    <img src="{{ asset('images/qr.png' )}}" alt="" height="300" width="300"/></center>
+    <center> <a href="{{ path('pdf', { 'id': velovendre.id }) }}"><h4 style="color:red">GET PDF</h4></a></center>
+
+{% endblock %}
+{% block footer %}
+    {{ parent() }}
+{% endblock %}

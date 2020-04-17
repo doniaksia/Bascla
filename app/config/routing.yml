@@ -1,7 +1,0 @@
-bascla:
-    resource: "@basclaBundle/Resources/config/routing.yml"
-    prefix:   /bascla
-
-app:
-    resource: '@AppBundle/Controller/'
-    type: annotation

@@ -1,0 +1,44 @@
+<?php
+
+namespace basclaDBundle\Repository\Entity;
+
+use Doctrine\ORM\EntityRepository;
+use basclaDBundle\Entity\Event;
+use Doctrine\ORM\NonUniqueResultException;
+use Doctrine\ORM\Query;
+
+class EventRepository extends EntityRepository
+{
+
+
+    public function findEntitiesByString($str){
+        return $this->getEntityManager()
+            ->createQuery(
+                'SELECT p
+                FROM basclaDBundle:Event p
+                WHERE p.title LIKE :str or
+                p.description LIKE :str or 
+                p.categorie
+              LIKE :str'
+            )
+            ->setParameter('str', '%'.$str.'%')
+            ->getResult();
+    }
+    public function fetchEvents($str){
+        $dd=f;
+
+        return $this->getEntityManager()
+            ->createQuery(
+                'SELECT p
+                FROM basclaDBundle:Event p
+                WHERE p.title LIKE :str or
+                p.description LIKE :str or 
+                p.categorie
+              LIKE :str'
+            )
+            ->setParameter('str', '%'.$str.'%')
+            ->getResult();
+    }
+
+
+}

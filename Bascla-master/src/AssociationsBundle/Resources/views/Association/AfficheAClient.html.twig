@@ -1,0 +1,32 @@
+{% extends "base.html.twig" %}
+{% block content %}
+
+    <br>
+    <br>
+    <br>
+    <br>
+  <center> <h2> List of associations </h2></center>
+
+
+
+    {% for e in association %}
+            <div class="card" align="center">
+
+                <div class="image">
+                    <img  src="{{ asset('images/' ~ e.logo) }}" height="142" width="142">
+                </div>
+                <div class="title">
+                    <h1>{{ e.Name }}</h1>
+                    {{ e.Description }} <br> {{ e.website }}
+                </div>
+
+                <div>
+                    <a href="{{ path('associations_showDetails',{'id': e.id}) }}">  <button type="button" class="btn btn-sm btn-outline-info">More</button></a>
+                    </div>
+            </div>
+        {% endfor %}
+
+
+    </table>
+
+{% endblock %}

@@ -1,0 +1,114 @@
+
+{%  extends 'base.html.twig' %}
+{% block header %}
+    {{ parent() }}
+
+{% endblock %}
+
+{% block content %}
+    <br><br>
+    <form method="POST">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-8 col-xs-offset-2">
+                    <div class="input-group">
+                        <input type="text" class="form-control"  placeholder="marque..." name="titree">
+                        <span class="input-group-btn"><button  class="btn btn-default" type="submit" ><span class="glyphicon glyphicon-search"></span></button>
+                   </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="clearfix"></div>
+    {% set verif = 1 %}
+    {% set verif1 = 1 %}
+    <tbody>
+
+    <div class="mountain-sec">
+<br>
+      <center> <h2>Enfants</h2></center>
+
+        <div class="clearfix"></div>
+    </div>
+    {% for velovendre in velovendres %}
+        {% if velovendre.categorie=="enfants" and velovendre.type=="equipments" %}
+
+            {% set verif1 = 2 %}
+
+
+            <a href="single.html"><div class="bike">
+                    <img src="{{ asset('images/' ~ velovendre.pathPhoto) }}" alt="" height="380" width="380"/>
+
+                    <div class="bike-cost">
+                        <div class="bike-mdl">
+                            <h4>{{ velovendre.marque }}<span>{{ velovendre.prix }} DT</span></h4>
+                        </div>
+                        <div class="bike-cart">
+
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="fast-viw">
+
+                        <a  class="buy" href="{{ path('velovendre_show', { 'id': velovendre.id }) }}">Quick View</a>
+
+                    </div>
+                </div></a>
+        {% endif %}
+    {% endfor %}
+    </div>
+
+    <div class="clearfix"></div>
+    </div>
+    <div class="mountain-sec">
+        <center><h2>Professionnel</h2></center>
+
+        <div class="clearfix"></div>
+    </div>
+    {% for velovendre in velovendres %}
+        {% if velovendre.categorie=="professionnel" and velovendre.type=="equipments"%}
+
+            {% set verif = 2 %}
+
+            <a href="single.html"><div class="bike">
+                    <img src="{{ asset('images/' ~ velovendre.pathPhoto) }}" alt="" height="380" width="380"/>
+
+                    <div class="bike-cost">
+                        <div class="bike-mdl">
+                            <h4>{{ velovendre.marque }}<span>{{ velovendre.prix }} DT</span></h4>
+                        </div>
+                        <div class="bike-cart">
+                            <a class="buy" href="single.html">BUY NOW</a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="fast-viw">
+
+                        <a  class="buy" href="{{ path('velovendre_show', { 'id': velovendre.id }) }}">Quick View</a>
+
+                    </div>
+                </div></a>
+
+        {% endif %}
+    {% endfor %}
+    {% if verif == 1 %}
+        <center>  <h4>pas d article</h4></center>
+
+    {% endif %}
+
+    </div>
+
+
+
+    <div class="clearfix"></div>
+    </div>
+
+    </tbody>
+
+
+
+{% endblock %}
+{% block footer %}
+    {{ parent() }}
+{% endblock %}

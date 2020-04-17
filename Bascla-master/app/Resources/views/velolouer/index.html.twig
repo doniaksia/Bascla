@@ -1,0 +1,67 @@
+
+{%  extends 'base.html.twig' %}
+{% block header %}
+    {{ parent() }}
+
+{% endblock %}
+
+{% block content %}
+
+    <center>
+
+        <div class="clearfix"></div>
+
+    </center>
+    <div class="clearfix"></div>
+    {% set verif = 1 %}
+    <tbody>
+
+
+
+        <div class="clearfix"></div>
+
+    {% for velovendre in velolouers %}
+
+
+
+
+            <a ><div class="bike">
+                    <img src="{{ asset('images/' ~ velovendre.pathPhoto) }}" alt="" height="380" width="380"/>
+
+                    <div class="bike-cost">
+                        <div class="bike-mdl">
+                            <h4>{{ velovendre.marque }}<span>{{ velovendre.prix  }} DT</span></h4>
+                        </div>
+
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="fast-viw">
+
+                        <a  class="buy" href="{{ path('reserver', { 'id': velovendre.id }) }}">Reserver</a>
+
+                    </div>
+                </div></a>
+
+    {% endfor %}
+    </div>
+
+    <div class="clearfix"></div>
+    </div>
+
+        <div class="clearfix"></div>
+
+
+
+    </div>
+
+
+
+
+    </tbody>
+
+
+
+{% endblock %}
+{% block footer %}
+    {{ parent() }}
+{% endblock %}

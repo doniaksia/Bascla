@@ -1,0 +1,108 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <style>
+        @page {
+            @bottom-right {
+                content: counter(page) " of " counter(pages);
+            }
+        }
+    </style>
+</head>
+
+<body >
+<div class="container" style="page-break-before: always;">
+    <div class="row">
+        <div class="col-12">
+
+        </div>
+    </div>
+    <center><h4 style="color: #0c85d0">Velo : {{ velovendre.id}}</h4></center>
+    <br>
+    <table class="table table-bordered table-condensed">
+        <tbody>
+
+        <tr>
+            <td>
+                <h6>
+                    <strong>marque</strong>
+                </h6>
+                <span>{{ velovendre.marque }}</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h6>
+
+                    <strong>Prix</strong>
+                </h6>
+                <span>{{ velovendre.prix }}</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h6>
+
+                    <strong>Type</strong>
+                </h6>
+                <span>{{ velovendre.type }}</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h6>
+
+                    <strong>Description</strong>
+                </h6>
+                <span>{{ velovendre.description }}</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h6>
+                    <strong>Nom de l entreprise </strong>
+                </h6>
+                <span>Baskla</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h6>
+                    <strong>entreprise  website</strong>
+                </h6>
+                <span>
+                            <a href="http://localhost/bascla-master/web/">bascla.tn</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h6>
+                    <strong> twitter</strong>
+                </h6>
+                <span>
+                            <a href="https://www.twitter.com/api2pdf_status">bascla</span>
+            </td>
+        </tr>
+        <tr>
+
+        </tr>
+        </tbody>
+    </table>
+    <hr/>
+
+                <h6>
+                    <strong>Image</strong>
+                </h6>
+                <img  src="http://localhost/Bascla-master/web/images/bik1.jpg" class="img-thumbnail" height="300" width="300">
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+</body>
+
+</html>
+

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<routes xmlns="http://symfony.com/schema/routing"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
+
+    <route id="velovendre_index" path="/" methods="GET">
+        <default key="_controller">basclaBundle:Velovendre:index</default>
+    </route>
+
+    <route id="velovendre_show" path="/{id}/show" methods="GET">
+        <default key="_controller">basclaBundle:Velovendre:show</default>
+    </route>
+
+    <route id="velovendre_new" path="/new" methods="GET|POST">
+        <default key="_controller">basclaBundle:Velovendre:new</default>
+    </route>
+
+    <route id="velovendre_edit" path="/{id}/edit" methods="GET|POST">
+        <default key="_controller">basclaBundle:Velovendre:edit</default>
+    </route>
+
+    <route id="velovendre_delete" path="/{id}/delete" methods="DELETE">
+        <default key="_controller">basclaBundle:Velovendre:delete</default>
+    </route>
+
+</routes>

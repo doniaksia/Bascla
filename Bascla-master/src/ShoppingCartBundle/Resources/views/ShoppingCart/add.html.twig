@@ -1,0 +1,23 @@
+{%  extends 'base.html.twig' %}
+
+{% block content %}
+        {% form_theme f 'bootstrap_4_horizontal_layout.html.twig' %}
+
+        <div class="ShoppingCart">
+        <table width="100%">
+        <tr>
+                <td>
+                <h2>please pick your item</h2></td>
+        </tr>
+
+        <tr>
+                <td height="80px" width="100%">{{ form(f) }} </td>
+        </tr>
+</table>
+
+
+
+</div>
+
+
+{% endblock %}

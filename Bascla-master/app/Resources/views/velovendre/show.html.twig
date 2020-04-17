@@ -1,0 +1,102 @@
+{%  extends 'base.html.twig' %}
+{% block header %}
+    {{ parent() }}
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="product">
+        <div class="container">
+            <div class="ctnt-bar cntnt">
+                <div class="content-bar">
+                    <div class="single-page">
+
+                        <!--Include the Etalage files-->
+                        <link rel="stylesheet" href=                        "{{  asset('Front/css/etalage.css') }}">
+                        <script src=                        "{{  asset('Front/js/jquery.etalage.min.js') }}"
+                        ></script>
+
+                        <script>
+                            jQuery(document).ready(function($){
+
+                                $('#etalage').etalage({
+                                    thumb_image_width: 400,
+                                    thumb_image_height: 400,
+                                    source_image_width: 800,
+                                    source_image_height: 1000,
+                                    show_hint: true,
+                                    click_callback: function(image_anchor, instance_id){
+                                        alert('Callback example:\nYou clicked on an image with the anchor: "'+image_anchor+'"\n(in Etalage instance: "'+instance_id+'")');
+                                    }
+                                });
+
+                            });
+                        </script>
+
+                        <div class="details-left-slider">
+
+                                <ul id="etalage">
+                                    <li>
+                                        <a href="optionallink.html">
+                                            <img class="etalage_thumb_image" src="{{ asset('images/' ~ velovendre.pathPhoto) }}" class="img-responsive"  height="10" width="10"/>
+                                            <img  class="etalage_source_image" src="{{ asset('images/' ~ velovendre.pathPhoto) }}"class="img-responsive" title=""  />
+
+                                        </a>
+                                    </li>
+
+                                    <li>
+
+                                    </li>
+
+                                </ul>
+                            <div class="clearfix"></div>
+                            <div class="clearfix"></div>
+                            </div>
+
+                        </div>
+
+                        <div class="details-left-info">
+                            <h3>velo</h3>
+                            <h4></h4>
+                            <h4></h4>
+                            <p><label>DT </label> {{ velovendre.prix }} <a href="#"></a></p>
+
+                            <div class="btn_form">
+                                <a class="buy" href="{{ path('qr', { 'id': velovendre.id }) }}">Buy now</a>
+
+                                <a href="{{ asset("index.php")}}">Rating </a>
+
+
+                            </div>
+                            <div class="bike-type">
+                                <p>TYPE  ::<a href="#">{{ velovendre.categorie }}</a></p>
+                                <p>BRAND  ::<a href="#">{{ velovendre.marque }}</a></p>
+                            </div>
+
+
+                        </div>
+
+                </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+{% endblock %}
+
+{% block footer %}
+
+    {{ parent() }}
+{% endblock %}

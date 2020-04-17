@@ -1,0 +1,88 @@
+bascla_location:
+    resource: "@basclaBundle/Resources/config/routing/location.xml"
+    prefix:   /location
+
+bascla_velovendre:
+
+        resource: "@basclaBundle/Resources/config/routing/velovendre.xml"
+        prefix:   /velovendre
+
+bascla_velolouer:
+
+     resource: "@basclaBundle/Resources/config/routing/velolouer.xml"
+     prefix:   /velolouer
+
+recherche:
+    path:     /velov
+    defaults:  { _controller: basclaBundle:Velovendre:rechercheformation }
+
+
+
+indexeq:
+    path:     /equipement
+    defaults:  { _controller: basclaBundle:Velovendre:indexeq }
+
+reserver:
+
+    path:     /reservation{id}
+    defaults:  { _controller: basclaBundle:Velolouer:reserver }
+
+_graphePie:
+    path:     /pie
+    defaults: { _controller: basclaBundle:Velovendre:chart}
+
+_barPie:
+    path:     /piebar
+    defaults: { _controller: basclaBundle:Velovendre:barchart}
+
+home:
+    path:     /home
+    defaults:  { _controller: basclaBundle:Default:index }
+products:
+    path:     /products
+    defaults:  { _controller: basclaBundle:Default:products }
+detail:
+    path:     /detail
+    defaults:  { _controller: basclaBundle:Default:detail }
+
+indexvelovendre:
+    path:     /indexvelovendre
+    defaults:  { _controller: basclaBundle:Velovendre:list }
+
+indexvelolouer:
+    path:     /indexvelolouer
+    defaults:  { _controller: basclaBundle:Velolouer:index1 }
+
+
+qr:
+    path:     /qr{id}
+    defaults:  { _controller: basclaBundle:Velovendre:qr }
+
+
+pdf1:
+    path:     /pdf{id}
+    defaults:  { _controller: basclaBundle:Velovendre:pdf }
+
+refreshdate:
+    path:     /refresh
+    defaults:  { _controller: basclaBundle:Location:actualiser }
+
+pagination:
+    path:     /pagination
+    defaults:  { _controller: basclaBundle:Velovendre:list }
+
+
+
+calendar_events:
+    path: /json
+    defaults: { _controller: basclaBundle:Velovendre:loadCalendar  }
+    options:
+        expose: true
+
+
+
+
+
+
+
+

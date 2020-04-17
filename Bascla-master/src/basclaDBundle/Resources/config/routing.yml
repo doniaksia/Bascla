@@ -1,0 +1,96 @@
+bascla_Controller_eventController:
+    resource: "@basclaDBundle/Resources/config/routing/event.php"
+    prefix:   /Controller/eventController
+
+home:
+    path:     /home
+    defaults:  { _controller: basclaDBundle:Default:index }
+homeAdmin:
+    path:     /homeAdmin
+    defaults:  { _controller: basclaDBundle:Default:indexAdmin }
+products:
+    path:     /products
+    defaults:  { _controller: basclaDBundle:Default:products }
+
+detail:
+    path:     /detail
+    defaults:  { _controller: basclaDBundle:Default:detail }
+
+ajouterEvent:
+    path:     /ajouterEvent
+    defaults:  { _controller: basclaDBundle:Event:ajouterEvent }
+
+afficherEvent:
+    path:     /afficherEvent
+    defaults:  { _controller: basclaDBundle:Event:afficherEvent }
+modifierEvent:
+    path:     /modifierEvent/{id}
+    defaults:  { _controller: basclaDBundle:Event:modifierEvent }
+
+supprimerEvent:
+    path:     /supprimerEvent/{id}
+    defaults:  { _controller: basclaDBundle:Event:supprimerEvent }
+
+CatalogueEvents:
+    path:     /CatalogueEvents
+    defaults:  { _controller: basclaDBundle:Event:CatalogueEvents }
+weeklypost :
+    path:     /weeklypost
+    defaults:  { _controller: basclaDBundle:Challenge:weeklyposts }
+
+detailEvent:
+    path:     /detailEvent/{id}
+    defaults:  { _controller: basclaDBundle:Event:detailEvent }
+ajax_search:
+    path:     /search
+    defaults:  { _controller: basclaDBundle:Event:search }
+participation:
+    path:     /participation/{id}/{ev}
+    defaults:  { _controller: basclaDBundle:Event:participer }
+like:
+    path:     /like/{id}
+    defaults:  { _controller: basclaDBundle:Challenge:like }
+
+error:
+    path:     /error
+    defaults:  { _controller: basclaDBundle:Event:error }
+desc:
+    path:     /desc/{id}
+    defaults:  { _controller: basclaDBundle:Event:desc }
+annuler:
+     path:     /annuler/{id}/{ev}
+     defaults:  { _controller: basclaDBundle:Event:annuler }
+participationDetail:
+    path:     /participation/{id}/{ev}
+    defaults:  { _controller: basclaDBundle:Event:participerDetail }
+errorDetail:
+    path:     /error
+    defaults:  { _controller: basclaDBundle:Event:errorDetail }
+annulerDetail:
+    path:     /annuler/{id}/{ev}
+    defaults:  { _controller: basclaDBundle:Event:annulerDetail }
+modal:
+    path:     /modal
+    defaults:  { _controller: basclaDBundle:Event:modal }
+confirmerP :
+    path:     /Confirmer
+    defaults:  { _controller: basclaDBundle:Event:confirmerPartic }
+
+ok :
+    path:     /ok/{id}
+    defaults:  { _controller: basclaDBundle:Event:ok }
+
+non :
+    path:     /non/{id}
+    defaults:  { _controller: basclaDBundle:Event:non }
+pdf :
+    path:     /pdf/{id}
+    defaults:  { _controller: basclaDBundle:Event:pdf }
+
+
+
+
+
+
+
+
